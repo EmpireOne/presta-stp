@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>tmproducts</name>
+	<displayName>TM Products</displayName>
+	<version>1.0</version>
+	<description>Displays some products at the top of your homepage.</description>
+	<author>TM</author>
+	<tab>front_office_features</tab>
+	<is_configurable>1</is_configurable>
+	<need_instance>1</need_instance>
+</module>

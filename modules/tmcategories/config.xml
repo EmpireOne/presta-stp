@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>tmcategories</name>
+	<displayName>TM Categories block</displayName>
+	<version>1.0</version>
+	<description>Adds a block featuring product categories at the top of page.</description>
+	<author>PrestaShop</author>
+	<tab>front_office_features</tab>
+	<is_configurable>1</is_configurable>
+	<need_instance>1</need_instance>
+</module>
