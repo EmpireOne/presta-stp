@@ -1,0 +1,2 @@
+UPDATE `PREFIX_fpp_index_product` AS ip SET ip.`id_filter` = (SELECT id_filter FROM `PREFIX_fpp_option` WHERE `id_option` = ip.`id_option`);
+UPDATE `PREFIX_fpp_index_product` AS ip SET ip.`id_searcher` = (SELECT id_searcher FROM `PREFIX_fpp_filter` WHERE `id_filter` = ip.`id_filter`);

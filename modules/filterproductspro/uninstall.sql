@@ -1,0 +1,14 @@
+DROP TABLE IF EXISTS `PREFIX_fpp_searcher`;
+DROP TABLE IF EXISTS `PREFIX_fpp_searcher_lang`;
+DROP TABLE IF EXISTS `PREFIX_fpp_filter`;
+DROP TABLE IF EXISTS `PREFIX_fpp_filter_lang`;
+DROP TABLE IF EXISTS `PREFIX_fpp_option_criterion`;
+DROP TABLE IF EXISTS `PREFIX_fpp_option_criterion_lang`;
+DROP TABLE IF EXISTS `PREFIX_fpp_option`;
+DROP TABLE IF EXISTS `PREFIX_fpp_column`;
+DROP TABLE IF EXISTS `PREFIX_fpp_column_lang`;
+DROP TABLE IF EXISTS `PREFIX_fpp_column_option`;
+DROP TABLE IF EXISTS `PREFIX_fpp_index_product`;
+DROP TABLE IF EXISTS `PREFIX_fpp_dependency_option`;
+DROP TABLE IF EXISTS `PREFIX_fpp_filter_category`;
+DELETE FROM `PREFIX_hook` WHERE `name` = 'filterProductsPro';

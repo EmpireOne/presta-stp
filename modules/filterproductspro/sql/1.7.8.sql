@@ -1,0 +1,2 @@
+ALTER TABLE `PREFIX_fpp_option_criterion` CHANGE `level_depth` `level_depth` INT( 10 ) NULL DEFAULT NULL;
+ALTER TABLE `PREFIX_fpp_filter` CHANGE `level_depth` `level_depth` INT( 10 ) NULL DEFAULT NULL  ;
