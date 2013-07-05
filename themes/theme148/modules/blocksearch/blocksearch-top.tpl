@@ -5,6 +5,7 @@
 		<a href="javascript:document.getElementById('searchbox').submit();">{l s='Go!' mod='blocksearch'}</a>
 		<input type="hidden" name="orderby" value="position" />
 		<input type="hidden" name="orderway" value="desc" />
+		<input type="hidden" name="controller" value="search">		
 	</form>
 </div>
 {if $instantsearch}

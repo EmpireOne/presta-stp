@@ -13,6 +13,15 @@ class AdminProductsController extends AdminProductsControllerCore
 
 	//getting values for template
 	//adding features to DB
+
+	//getting values for template
+	//adding features to DB
+
+	//getting values for template
+	//adding features to DB
+
+	//getting values for template
+	//adding features to DB
 	public function processFeatures(){
 		if (!Feature::isFeatureActive())
 			return;
