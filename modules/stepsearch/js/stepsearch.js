@@ -9,6 +9,8 @@ function runSteps($step) {
 
 		if($(this).find('.step_select').val())
 		{
+			$('.step_search_btn').off('click');
+			$('.stepsearch_tip').hide();
 			$data = 'id='+ $(this).find('.step_select').val()
 			if ($step == $stepsearch_step_count)
 			{
@@ -25,7 +27,9 @@ function runSteps($step) {
 						$('#stepsearch_box div.hidden').fadeIn();
 						window.location.href = data;
 					}
-					else fillnext(parseInt($step)+1, data);
+					else {
+					fillnext(parseInt($step)+1, data);
+					}
 
 
 				},
@@ -33,7 +37,7 @@ function runSteps($step) {
 					alert('Error code ' + textStatus + ': ' + errorThrown)
 				}
 			});			
-		}
+		} else {emptynext($step);} 
 
 	
 	});
@@ -44,9 +48,29 @@ runSteps(1);
 
 function fillnext($step, data)
 {
-	$('#stepsearch_'+$step).find('.step_select').html(data).attr('disabled', false);
+	if (data.subfilters == null) {
+		$('#stepsearch_'+$step).find('.step_select').html(data.subfilters).attr('disabled', true);
+	} else {
+	$('#stepsearch_'+$step).find('.step_select').html(data.subfilters).attr('disabled', false);
+	}
 	$next_to_clear = parseInt($step+1);
 	$('#stepsearch_'+$next_to_clear).find('.step_select').html('<option value="">--</option>');
+	$('.step_search_btn').replaceWith('<a class="step_search_btn" href="'+data.newpage+'" title="Search">Search</a>');
+	runSteps($step);
+}
+
+function emptynext($step)
+{
+	for (var i=(parseInt($step)+1);i<=$stepsearch_step_count;i++)
+		{ 
+		$('#stepsearch_'+ i).find('.step_select').html('<option value="">--</option>').attr('disabled', true);
+		}
+	if ( (parseInt($step) == 1)) {	
+		$('.step_search_btn').replaceWith('<a class="step_search_btn" href="#" onclick="return false;" title="Search">Search</a>');
+		$('.step_search_btn').click(function() {
+					$('.stepsearch_tip').show();
+				});
+			} else {$('#stepsearch_'+(parseInt($step)-1)).change();}
 	runSteps($step);
 }
 
@@ -67,5 +91,11 @@ labels.each(function() {
 $('.toggletips').live('click', function() {
 	$('.stepsearch_tip').toggle('normal');
 });
+
+$('.step_search_btn').click(function() {
+	$('.stepsearch_tip').show();
+});
+
+
 
 });	

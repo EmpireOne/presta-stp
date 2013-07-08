@@ -1,7 +1,8 @@
 #stepsearch_box {color: #545454;}
 #stepsearch_box p {padding-bottom: 5px;text-align: center;}
-#stepsearch_box .block_content {padding: 7px;}
-#stepsearch_box .toggletips {margin-top: 10px; display: block;font-weight: bold; color:#686868;}
+#stepsearch_box .block_content {padding: 7px; background:#757a80 url('../img/bg.jpg') top right no-repeat;}
+#stepsearch_box .toggletips {margin-top: 10px; display: block;font-weight: bold; color: white;}
+#stepsearch_box .step_search_btn {margin-top: 10px; display: block;font-weight: bold; color: white;}
 #stepsearch_box .toggleqq {text-transform: uppercase;margin-top: 10px;}
 #stepsearch_box .stepsearch_tip {color: #990000;text-align: left;}
 
