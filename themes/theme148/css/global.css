@@ -86,6 +86,7 @@ p.success {border:2px solid #5eb569;background:#f1f2f4;margin:12px 0 0 0;padding
 
 /* —————————————————————————————— layout —————————————————————————————— */
 div#wrapper1 {min-width:950px;min-height:100%;background:url(../img/bg_mid.png) 50% 0 repeat-y #dfdfdf;}
+/*div#wrapper2 {height:100%;background:url(../img/bg_top.png) 50% 0 no-repeat;}*/
 div#wrapper2 {height:100%;background:url(../img/bg_top.png) 50% 0 no-repeat;}
 div#wrapper3 {width:950px;margin:0 auto;text-align:left;}
 
@@ -381,9 +382,9 @@ form.std .required_desc {padding-left:157px;}
 
 
 /* —————————————————————————————— header styles —————————————————————————————— */
-div#header {height:68px;padding:158px 0 0 0;background:url(../img/bg_header.png) 0 88px no-repeat;position:relative;zoom:1;}
+div#header {height:68px;padding:228px 0 0 0;background:url(../img/bg_header.png) 0 88px no-repeat;position:relative;zoom:1;}
 
-a#header_logo {width:180px;height:46px;display:block;position:absolute;left:9px;top:100px;}
+a#header_logo {width:165px;height:148px;display:block;position:absolute;left:20px;top:93px;}
 
 
 /* ————— blocklanguages.tpl ————— */
@@ -1404,10 +1405,13 @@ ul.shop_info li {padding-left:0.5em!important;padding-bottom:0.5em!important;}
 
 
 /* —————————————————————————————— footer styles —————————————————————————————— */
-#footer {height:73px;clear:both;overflow:hidden;}
+
+#footer {clear:both;overflow:hidden;position:relative;width=950px;}
+/* #footer > div {float:left;padding:0 10px 0 10px;width:190px} */
 
 
 /* ————— blockcms.tpl ————— */
+/*
 ul#footer_links {padding:18px 0 0 0;}
 ul#footer_links li {display:inline;padding:0 0 0 8px;}
 ul#footer_links li:first-child {padding:0;}
@@ -1417,7 +1421,7 @@ ul#footer_links li a:hover {text-decoration:underline;}
 ul#footer_links li.last_item {border:none;padding:0 0 0 19px;color:#8b8b8b;}
 ul#footer_links li.last_item a {color:#8b8b8b;}
 ul#footer_links li.last_item a:hover {color:#000;}
-
+*/
 
 
 

@@ -55,7 +55,7 @@ function fillnext($step, data)
 	}
 	$next_to_clear = parseInt($step+1);
 	$('#stepsearch_'+$next_to_clear).find('.step_select').html('<option value="">--</option>');
-	$('.step_search_btn').replaceWith('<a class="step_search_btn" href="'+data.newpage+'" title="Search">Search</a>');
+	$('.step_search_btn').replaceWith('<a class="step_search_btn" href="'+data.newpage+'" title="Search"></a>');
 	runSteps($step);
 }
 
