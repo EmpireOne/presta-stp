@@ -61,7 +61,7 @@
       <module name="innovativemenu" position="15" />
    </tab>
    <tab class_name="AdminCustomerThreads" display_type="slider_list">
-      <module name="zingaya" position="1" />      
+      <module name="zingaya" position="1" />
       <module name="fianetfraud" position="2" />
    </tab>
    <tab class_name="AdminStats" display_type="">
@@ -148,6 +148,9 @@
    <tab class_name="AdminTaxRulesGroup" display_type="slider_list">
       <module name="vatnumber" position="1" />
    </tab>
+   <tab class_name="AdminCategories" display_type="slider_list">
+      <module name="innovativemenu" position="1" />
+   </tab>
    <tab class_name="AdminEmails" display_type="slider_list">
       <module name="mailin" position="1" />
       <module name="mailjet" position="2" />
@@ -156,6 +159,7 @@
    </tab>
    <tab class_name="AdminMeta" display_type="slider_list">
       <module name="gsitemap" position="1" />
+      <module name="seohelping" position="2" />
    </tab>
    <tab class_name="AdminCarriers" display_type="slider_list">
       <module name="mondialrelay" position="1" />

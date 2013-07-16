@@ -5,7 +5,7 @@ define('_DB_USER_', 'empireone_d');
 define('_DB_PASSWD_', 'YNn2DaFW');
 define('_DB_PREFIX_', 'ps_');
 define('_MYSQL_ENGINE_', 'InnoDB');
-define('_PS_CACHING_SYSTEM_', 'CacheFs');
+define('_PS_CACHING_SYSTEM_', 'CacheMemcache');
 define('_PS_CACHE_ENABLED_', '0');
 define('_MEDIA_SERVER_1_', '');
 define('_MEDIA_SERVER_2_', '');
