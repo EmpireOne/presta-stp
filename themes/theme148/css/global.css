@@ -724,8 +724,9 @@ div#tmproducts ul li:hover span.price {color:#000;}
 
 /* ————— category.tpl ————— */
 div#subcategories ul.inline_list {padding:17px 0 0 0;}
-div#subcategories ul.inline_list li {float:left;margin-right:20px;}
-div#subcategories ul.inline_list li a {color:#000;text-decoration:none;}
+div#subcategories ul.inline_list li {float:left;margin-bottom:8px;} /* margin-right: 20px REMOVED */
+div#subcategories ul.inline_list li a {color:#000;text-decoration:none;display:inline-block;text-align:center;padding:0 10px}
+div#subcategories ul.inline_list li a.cat_text {color:#000;text-decoration:none; border-right: 1px solid #eee; border-left: 1px solid #eee;} /*added side-borders and padding */
 div#subcategories ul.inline_list li a:hover {color:#8b8b8b;}
 div#subcategories ul.inline_list li a img {display:inline;}
 

@@ -34,16 +34,29 @@
 		<div id="subcategories">
 			<h3>{l s='Subcategories'}</h3>
 			<ul class="inline_list">
+			{$subcat_check = 0}
+			{foreach from=$subcategories item=subcategory}
+				{if (stristr($subcategory.id_image, "-default") === FALSE) }
+					{$subcat_check = $subcat_check + 1}
+				{/if}
+			{/foreach}
 			{foreach from=$subcategories item=subcategory}
 				<li>
-					<a href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'htmlall':'UTF-8'}" title="{$subcategory.name|escape:'htmlall':'UTF-8'}">
+
+					<a style="min-width:{$mediumSize.width}px" href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'htmlall':'UTF-8'}" title="{$subcategory.name|escape:'htmlall':'UTF-8'}">
+					
 						{if $subcategory.id_image}
+							{if ($subcat_check > 0) }
 							<img src="{$link->getCatImageLink($subcategory.link_rewrite, $subcategory.id_image, 'medium')}" alt="" width="{$mediumSize.width}" height="{$mediumSize.height}" />
+							{else}
+							<img src="{$link->getCatImageLink($subcategory.link_rewrite, $subcategory.id_image, 'medium')}" alt="" style="max-height: {$mediumSize.height}px; max-width: {$mediumSize.width}px" /> <!-- REMOVED width="{$mediumSize.width}" height="{$mediumSize.height}" -->
+							{/if}
 						{else}
-							<img src="{$img_cat_dir}default-medium.jpg" alt="" width="{$mediumSize.width}" height="{$mediumSize.height}" />
+							<img src="{$img_cat_dir}default-medium.jpg" alt="" style="max-height: {$mediumSize.height}px; max-width: {$mediumSize.width}px"/> <!-- REMOVED width="{$mediumSize.width}" height="{$mediumSize.height}" -->
 						{/if}
-					</a><br />
-					<a href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'htmlall':'UTF-8'}">{$subcategory.name|escape:'htmlall':'UTF-8'}</a>
+					</a><br /> 
+
+					<a class="cat_text" style="min-width:{$mediumSize.width}px" href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'htmlall':'UTF-8'}">{$subcategory.name|escape:'htmlall':'UTF-8'}</a> 
 				</li>
 			{/foreach}
 			</ul>
