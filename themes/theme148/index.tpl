@@ -1,1 +1,1 @@
-{$HOOK_HOME}
+{$HOOK_HOME}<div id="right_column" class="column">{$HOOK_RIGHT_COLUMN}</div>

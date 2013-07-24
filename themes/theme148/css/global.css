@@ -100,6 +100,11 @@ div#center_column {width:670px;margin:0 0 10px 10px;padding:0 20px 20px 20px;bac
 
 body#index div#center_column {width:710px;padding:0;background:none;}
 
+/* Added for our custom homepage to work */
+div#right_column {width:230px; position:absolute; top:0px; right:0px}
+div#center_column {position:relative} /* need relative div for absolute positioning to work */
+
+
 
 
 
@@ -479,7 +484,7 @@ div.column div.block h4 {height:29px;padding:10px 0 0 11px;background:url(../img
 div.column div.block h4 a {font:bold 12px "Trebuchet MS";color:#323232;}
 div.column div.block h4 a:hover {text-decoration:underline;}
 
-div.column div.block .block_content {margin:1px 0 0 0;padding:0 19px 19px 19px;background:#fff;border:1px solid #fff;}
+div.column div.block .block_content {margin:1px 0 0 0;padding:11px 19px 12px 19px;background:#fff;border:1px solid #fff;}
 
 div.column div.block ul.bullet {padding-top:11px;}
 div.column div.block ul.bullet li {padding:4px 0 0 12px;background:url(../img/bullet.gif) 0 8px no-repeat;}
@@ -557,9 +562,11 @@ div#manufacturers_block_left ul li a {height:30px;display:block;padding:0 0 0 33
 
 
 /* ————— tmspecials.tpl ————— */
+#right_column #tmspecials ul li {height:86px !important;}  /* override height for custom specials on homepage */
 div#tmspecials div.block_content {padding:0 19px;}
 div#tmspecials ul li {height:92px;border-top:1px dashed #e8e8e8;}
 div#tmspecials ul li:first-child {border:none;}
+#right_column div#tmspecials ul li:nth-child(5), #right_column div#tmspecials ul li:nth-child(6) {display:none} /* override display of 5 and 6th specials */
 
 div#tmspecials ul li a.product_img_link {width:70px;height:70px;display:block;float:left;margin:11px 0 0 0;}
 
@@ -672,6 +679,8 @@ div#stores_block_left p a img {margin:0 0 10px 0;}
 /* —————————————————————————————— product pages —————————————————————————————— */
 /* ————— piscesslider.tpl ————— */
 div#slide_holder {width:470px;height:388px;float:left;padding:1px 0 0 0;}
+/* I added the following since we removed the grey column */
+
 div#slider {width:470px;height:388px;overflow:hidden;}
 
 .nivoSlider {position:relative;}
@@ -687,6 +696,7 @@ div.nivo-controlNav a.active {background:url(../img/slider_item_active.png) 0 0 
 
 
 /* ————— tmbannerblock.tpl ————— */
+div#tmbannerblock {visibility:hidden} /* Added to hide tmbanner block but but leave correct space */
 div#tmbannerblock {width:230px;height:389px;float:left;margin:0 0 0 10px;}
 
 
@@ -1157,6 +1167,7 @@ body#authentication #login_form p.lost_password {padding:12px 0 0 0;}
 
 #new_account_form p.radio input {top:3px;}
 #new_account_form p.radio label {padding:0 15px 0 3px;line-height:19px;display:inline-block;}
+#new_account_form p.checkbox input {margin-left: 0px !important};
 
 /* account creation form */
 form#account-creation_form p.radio input {top:3px;}
@@ -1346,12 +1357,19 @@ body#discount div.center_column sup {vertical-align:top;font:normal 13px "Tahoma
 /* ————— order-opc.tpl ————— */
 div#order-opc h2 {padding:30px 0 0 0;}
 
+#order-opc form.std h3 {margin:8px 0 !important;} /*added to fix header overlap in one page checkout*/
+
+#order-opc p.text label, #order-opc p.password label, #order-opc p.select label, #order-opc p.textarea label, #order-opc p.radio label:first-child {width:180px !important;}
+
+#order-opc span.validity {padding:2px 0 2px 16px !important;} /*added to fix icon truncating in one page checkout*/
+
 div#order-opc table#carrierTable {margin:17px 0 0 0;}
 
 div#order-opc textarea#message {width:665px;height:100px;}
 
 
 /* ————— order-opc-new-account.tpl ————— */
+
 
 /* account choice */
 div#opc_account_choice div.opc_float {height:27px;padding:17px 0 0 0;}

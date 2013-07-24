@@ -333,6 +333,7 @@
 				<p class="required required_desc">
 					<sup>*</sup>{l s='Required field'}
 				</p>
+				{$HOOK_CREATE_ACCOUNT_FORM}
 				<p class="submit">
 					<input type="submit" class="exclusive button" name="submitAccount" id="submitAccount" value="{l s='Save'}" />
 				</p>

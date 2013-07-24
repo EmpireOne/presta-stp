@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<module>
-	<name>tmspecials</name>
-	<displayName>TM Specials block</displayName>
-	<version>0.8</version>
-	<description>Adds a block with current product specials.</description>
-	<author>TM</author>
-	<tab>pricing_promotion</tab>
-	<is_configurable>1</is_configurable>
-	<need_instance>1</need_instance>
-</module>
+        <module>
+            <name>tmspecials</name>
+            <displayName><![CDATA[TM Specials block]]></displayName>
+            <version><![CDATA[0.8]]></version>
+            <description><![CDATA[Adds a block with current product specials.]]></description>
+            <author><![CDATA[TM]]></author>
+            <tab><![CDATA[pricing_promotion]]></tab>
+            <is_configurable>1</is_configurable>
+            <need_instance>1</need_instance>
+	<limited_countries></limited_countries>
+        </module>

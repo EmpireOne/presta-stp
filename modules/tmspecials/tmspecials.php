@@ -62,6 +62,8 @@ class TMSpecials extends Module
 	{
 		if (Configuration::get('PS_CATALOG_MODE'))
 			return ;
-		Tools::addCSS(($this->_path).'blockspecials.css', 'all');
+		 $this->context->controller->addCSS(($this->_path).'blockspecials.css', 'all');
+		 //following line replaced since deprecated
+		//Tools::addCSS(($this->_path).'blockspecials.css', 'all');
 	}
 }

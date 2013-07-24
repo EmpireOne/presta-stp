@@ -46,10 +46,11 @@
             {if isset($shop_details)}
                 {$shop_details|escape:'htmlall':'UTF-8'}<br />
             {/if}
-
+<!-- removed free text from footer
             {if isset($free_text)}
     			{$free_text|escape:'htmlall':'UTF-8'}<br />
             {/if}
+-->
 		</td>
 	</tr>
 </table>

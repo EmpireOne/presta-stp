@@ -9,7 +9,7 @@ function runSteps($step) {
 
 		if($(this).find('.step_select').val())
 		{
-			$('.step_search_btn').off('click');
+			$('#step_search_btn').off('click');
 			$('.stepsearch_tip').hide();
 			$data = 'id='+ $(this).find('.step_select').val()
 			if ($step == $stepsearch_step_count)
@@ -55,7 +55,7 @@ function fillnext($step, data)
 	}
 	$next_to_clear = parseInt($step+1);
 	$('#stepsearch_'+$next_to_clear).find('.step_select').html('<option value="">--</option>');
-	$('.step_search_btn').replaceWith('<a class="step_search_btn" href="'+data.newpage+'" title="Search"></a>');
+	$('#step_search_btn').replaceWith('<a class="button_small" id="step_search_btn" style="margin: 10px 0 3px 0; width:80px" href="'+data.newpage+'" title="Search">Search</a>');
 	runSteps($step);
 }
 
@@ -66,8 +66,8 @@ function emptynext($step)
 		$('#stepsearch_'+ i).find('.step_select').html('<option value="">--</option>').attr('disabled', true);
 		}
 	if ( (parseInt($step) == 1)) {	
-		$('.step_search_btn').replaceWith('<a class="step_search_btn" href="#" onclick="return false;" title="Search">Search</a>');
-		$('.step_search_btn').click(function() {
+		$('#step_search_btn').replaceWith('<a class="button_small" id="step_search_btn" style="margin: 10px 0 3px 0; width:80px" href="#" onclick="return false;" title="Search">Search</a>');
+		$('#step_search_btn').click(function() {
 					$('.stepsearch_tip').show();
 				});
 			} else {$('#stepsearch_'+(parseInt($step)-1)).change();}
@@ -92,7 +92,7 @@ $('.toggletips').live('click', function() {
 	$('.stepsearch_tip').toggle('normal');
 });
 
-$('.step_search_btn').click(function() {
+$('#step_search_btn').click(function() {
 	$('.stepsearch_tip').show();
 });
 

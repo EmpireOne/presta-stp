@@ -2,7 +2,8 @@
 <ul id="header_user">
 	<li id="header_user_info">
 		{l s='Welcome' mod='blockuserinfo'},
-		{if $cookie->isLogged()}
+		{*if $cookie->isLogged()*}
+		{if $logged}
 			<span>{$cookie->customer_firstname} {$cookie->customer_lastname}</span>
 			(&nbsp;<a href="{$link->getPageLink('index.php')}?mylogout" title="{l s='Log me out' mod='blockuserinfo'}">{l s='Log out' mod='blockuserinfo'}</a>&nbsp;)
 		{else}

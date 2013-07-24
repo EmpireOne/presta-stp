@@ -113,6 +113,7 @@ $(function(){ldelim}
 						<input type="hidden" id="customer_lastname" name="customer_lastname" value="{if isset($smarty.post.lastname)}{$smarty.post.lastname}{/if}">
 						<sup>*</sup>
 					</p>
+					<!-- Birthday commented out for Sydney Truck Parts
 					<p class="select">
 						<span>{l s='Date of Birth'}</span>
 						<select id="days" name="days">
@@ -148,6 +149,7 @@ $(function(){ldelim}
 							{/foreach}
 						</select>
 					</p>
+					-->
 					<p class="checkbox">
 						<input type="checkbox" name="newsletter" id="newsletter" value="1" {if isset($smarty.post.newsletter) && $smarty.post.newsletter == '1'}checked="checked"{/if}>
 						<label for="newsletter">{l s='Sign up for our newsletter'}</label>
@@ -249,6 +251,7 @@ $(function(){ldelim}
 			<sup>*</sup>
 			<span class="form_info">{l s='(5 characters min.)'}</span>
 		</p>
+		<!-- commented out birthday
 		<p class="select">
 			<span>{l s='Date of Birth'}</span>
 			<select id="days" name="days">
@@ -284,6 +287,7 @@ $(function(){ldelim}
 				{/foreach}
 			</select>
 		</p>
+		-->
 		<p class="checkbox" >
 			<input type="checkbox" name="newsletter" id="newsletter" value="1" {if isset($smarty.post.newsletter) AND $smarty.post.newsletter == 1} checked="checked"{/if} />
 			<label for="newsletter">{l s='Sign up for our newsletter'}</label>
@@ -352,7 +356,7 @@ $(function(){ldelim}
 			<sup>*</sup>
 		</p>
 		<p class="textarea">
-			<label for="other">{l s='Additional information'}</label>
+			<label for="other">{l s='Business Owner / Additional information'}</label>
 			<textarea name="other" id="other" cols="26" rows="3">{if isset($smarty.post.other)}{$smarty.post.other}{/if}</textarea>
 		</p>
 		<p class="required">{l s='You must register at least one phone number'} <sup>*</sup></p>

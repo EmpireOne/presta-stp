@@ -2,6 +2,8 @@ input.readonly {
   color: gray;
 }
 
+#order-opc #center_column {color: #555} 
+
 .tooltip {
         color: #000;/*position: absolute;top:0;left:0;width:100%;*/height:30px;box-shadow:0 3px 5px 0 rgba(0,0,0,0.4);
         -webkit-box-shadow:0 3px 5px 0 rgba(0,0,0,0.4);
@@ -174,7 +176,7 @@ div.confirm_button_div {
 
 input.confirm_button, #free_order_confirm {
     display: block;
-    background-color: #00AA00;
+    background-color: #232323;
     background-image: none;
     border: 1px solid black;
     color: white;
@@ -188,7 +190,7 @@ input.confirm_button, #free_order_confirm {
 }
 
 input.confirm_button:hover, #free_order_confirm:hover {
-    background-color: #00CC00;
+    background-color: #36f;
     cursor: pointer;
 }
 
@@ -232,7 +234,8 @@ div#opc_payment_methods-content p {
         height: 2em;
 }
 
-#login_form a { color: #374853 }
+#login_form a { color: #deffed }
+/*#login_form a { color: #374853 } */
 input#SubmitLogin { margin: 0; }
 #login_form p.submit {
 	margin-right: 0;
@@ -386,7 +389,8 @@ p.cart_navigation_extra, p.cart_navigation {
 
 form.std h3,
 #new_account_form.std h3, #order-opc h2 {
-    background: url("../../../../themes/default/img/bg_form_h3.png") repeat-x scroll 0 0 #989898;
+    /*background: url("../../../../themes/default/img/bg_form_h3.png") repeat-x scroll 0 0 #989898;*/
+	background: #232323;
     color: #FFFFFF;
     font-size: 14px;
     margin: -3px -3px 15px;

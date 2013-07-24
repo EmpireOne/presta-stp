@@ -43,11 +43,16 @@ class AdminOrdersControllerCore extends AdminController
 		$this->_select = '
 		a.id_currency,
 		ad.`company` AS `company`, 
+		(SELECT group_concat(g.`name`) FROM `'._DB_PREFIX_.'group_lang` g
+		LEFT JOIN `'._DB_PREFIX_.'customer_group` cg ON (cg.`id_group` = g.`id_group`)
+		WHERE g.`id_group` != 1 AND g.`id_lang`=1 AND cg.`id_customer` = a.id_customer GROUP BY a.id_customer 
+		) as group_name,  
 		a.id_order AS id_pdf,
 		CONCAT(LEFT(c.`firstname`, 1), \'. \', c.`lastname`) AS `customer`,
 		osl.`name` AS `osname`,
 		os.`color`,
 		IF((SELECT COUNT(so.id_order) FROM `'._DB_PREFIX_.'orders` so WHERE so.id_customer = a.id_customer) > 1, 0, 1) as new';
+
 
 		//added LEFT JOIN `'._DB_PREFIX_.'address` ad ON (a.`id_address_delivery` = ad.`id_address`)
 		$this->_join = '
@@ -65,6 +70,7 @@ class AdminOrdersControllerCore extends AdminController
 			$statuses_array[$status['id_order_state']] = $status['name'];
 
 		//added company array
+		//added group_name concatenated array (NNEDED TO ADD 'havingFilter' => true)
 		$this->fields_list = array(
 		'id_order' => array(
 			'title' => $this->l('ID'),
@@ -75,6 +81,11 @@ class AdminOrdersControllerCore extends AdminController
 			'title' => $this->l('Reference'),
 			'align' => 'center',
 			'width' => 65
+		),
+		'group_name' => array(
+			'title' => $this->l('Group'),
+			'align' => 'center',
+			'havingFilter' => true
 		),
 		'new' => array(
 			'title' => $this->l('New'),
