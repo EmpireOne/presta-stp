@@ -5,6 +5,8 @@ class AuthController extends AuthControllerCore
 
 
 
+
+
     private $opcModuleActive = -1; // -1 .. not set, 0 .. inactive, 1 .. active
 
     private function isOpcModuleActive()

@@ -150,8 +150,8 @@
 {capture name=password_checkbox}
     {if !isset($guestInformations) || !$guestInformations.id_customer || $isGuest}
     <p class="checkbox" id="p_registerme"
-       {if !$PS_GUEST_CHECKOUT_ENABLED.value && !$opc_config.display_password_msg}style="display: none"{/if}>
-        <input type="checkbox" {if !$PS_GUEST_CHECKOUT_ENABLED.value}disabled="disabled"{/if} {if !$PS_GUEST_CHECKOUT_ENABLED.value || $opc_config.password_checked}checked="checked"{/if}
+		{if !$PS_GUEST_CHECKOUT_ENABLED && !$opc_config.display_password_msg}style="display: none"{/if}>
+        <input type="checkbox" {if !$PS_GUEST_CHECKOUT_ENABLED}disabled="disabled"{/if} {if !$PS_GUEST_CHECKOUT_ENABLED || $opc_config.password_checked}checked="checked"{/if}
                name="registerme" id="registerme" value="1" onclick="toggle_password_box();"/>
         <label for="registerme">{l s='Create an account and enjoy benefits of registered customers.' mod='onepagecheckout'}</label>
     </p>
@@ -163,7 +163,7 @@
 
 <!-- Account -->
 <input type="hidden" id="is_new_customer" name="is_new_customer"
-       value="{if !$PS_GUEST_CHECKOUT_ENABLED.value || $opc_config.password_checked}1{else}0{/if}"/>
+       value="{if !$PS_GUEST_CHECKOUT_ENABLED || $opc_config.password_checked}1{else}0{/if}"/>
 <input type="hidden" id="opc_id_customer" name="opc_id_customer"
        value="{if isset($guestInformations) && $guestInformations.id_customer}{$guestInformations.id_customer}{else}0{/if}"/>
 <input type="hidden" id="opc_id_address_delivery" name="opc_id_address_delivery"

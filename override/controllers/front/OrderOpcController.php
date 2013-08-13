@@ -5,6 +5,28 @@ class OrderOpcController extends OrderOpcControllerCore
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //_hookExecPaymentShip2pay()
     public $php_self = 'order-opc';
     public $isLogged;
 

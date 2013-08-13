@@ -36,7 +36,7 @@ noscript ul {list-style-type:none;background:black;color:white;padding:10px;}
 .center_column a {color:#323232;text-decoration:underline;}
 .center_column a:hover {text-decoration:none;}
 
-.center_column h1 {width:710px;height:29px;margin:0 0 0 -20px;padding:10px 0 0 11px;background:url(../img/center_col_title.png) 0 0 no-repeat;border-bottom:1px solid #dfdfdf;font:bold 12px "Trebuchet MS";color:#323232;text-transform:uppercase;}
+.center_column h1 {width:699px;height:29px;margin:0 0 0 -20px;padding:10px 0 0 11px;background:url(../img/center_col_title.png) 0 0 no-repeat;border-bottom:1px solid #dfdfdf;font:bold 12px "Trebuchet MS";color:#323232;text-transform:uppercase;}
 .center_column h1 span {margin-left:15px;font:normal 12px "Arial";color:#8b8b8b;text-transform:none;}
 
 .center_column h2,
@@ -519,7 +519,7 @@ div#manufacturers_block_left ul li a {height:30px;display:block;padding:0 0 0 33
 #cart_block dl a {text-decoration:underline;}
 #cart_block dl a:hover {text-decoration:none;}
 #cart_block dl dt a {float:left;}
-#cart_block dl dt span.price {font-weight:bold;float:right;}
+#cart_block dl dt span.price {font-weight:bold;float:right;margin-left:10px}
 #cart_block dl dd a {padding:0 0 0 14px;font-size:11px;font-style:italic;}
 
 #cart_block a.ajax_cart_block_remove_link {width:11px;height:13px;margin:0 0 0 5px;float:right;font-size:0;display:block;background:url(../img/icon/delete.gif) 0 bottom no-repeat;}
@@ -661,7 +661,7 @@ div#stores_block_left p a img {margin:0 0 10px 0;}
 
 /* —————————————————————————————— center column styles —————————————————————————————— */
 /* ————— breadcrumb.tpl ————— */
-.breadcrumb {width:710px;height:27px;margin:0 0 0 -20px;padding:12px 0 0 11px;border-bottom:1px solid #dfdfdf;color:#8b8b8b;}
+.breadcrumb {width:699px;height:27px;margin:0 0 0 -20px;padding:12px 0 0 11px;border-bottom:1px solid #dfdfdf;color:#8b8b8b;}
 
 .breadcrumb .navigation_page,
 .breadcrumb .navigation_end,
@@ -1167,7 +1167,11 @@ body#authentication #login_form p.lost_password {padding:12px 0 0 0;}
 
 #new_account_form p.radio input {top:3px;}
 #new_account_form p.radio label {padding:0 15px 0 3px;line-height:19px;display:inline-block;}
-#new_account_form p.checkbox input {margin-left: 0px !important};
+#new_account_form p.checkbox input {margin-left: 0px !important;}
+#new_account_form p.select select {margin-right:5px !important;}
+
+
+
 
 /* account creation form */
 form#account-creation_form p.radio input {top:3px;}
@@ -1185,6 +1189,33 @@ form#account-creation_form span.form_info {line-height:19px;}
 body#my-account div#center_column ul#my_account_links {padding:3px 0 0 0;}
 body#my-account div#center_column ul#my_account_links li {padding:12px 0 0 0;}
 body#my-account div#center_column ul#my_account_links li img {margin:0 5px 0 0;display:inline-block;}
+
+/*
+body#my-account div#center_column ul#myaccount_lnk_list {padding:3px 0 0 0;}
+body#my-account div#center_column ul#myaccount_lnk_list li {padding:12px 0 0 0;}
+body#my-account div#center_column ul#myaccount_lnk_list li img {margin:0 5px 0 0;display:inline-block;} */
+
+#my-account #center_column h1 {margin-bottom:20px}
+
+#my-account #center_column .title_block  {
+	font-weight:normal;
+	font-size:12px;
+	color:#666
+}
+
+#my-account .myaccount_lnk_list {list-style-type:none}
+#my-account .myaccount_lnk_list li {
+	font-size:13px;
+	line-height:36px
+}
+#my-account .myaccount_lnk_list img.icon,
+#my-account p img.icon {
+	position:relative;
+	top:6px;
+	left:0;
+	width:16px;
+	margin-right:5px;
+}
 
 
 /* ————— addresses.tpl ————— */
@@ -1231,10 +1262,11 @@ ul#order_step li#step_end.step_current {background:transparent url(../img/step_e
 
 
 /* ————— Order step 1: summary (shopping-cart.tpl) ————— */
-table.cart_last_product {width:350px;margin:15px auto 0 auto;}
+/*table.cart_last_product {width:350px;margin:15px auto 0 auto;}
 table.cart_last_product tr th {background:#3d3d3d;color:#fff;}
 table.cart_last_product tr td {border:none !important;padding-right:0;}
-table.cart_last_product tr td.cart_product {width:45px;}
+table.cart_last_product tr td.cart_product {width:45px;}*/
+.cart_last_product {display:none}
 
 body#order table.std td:first-child a img {}
 body#order table.std h5 a {}
@@ -1243,11 +1275,17 @@ body#order table.std h5 a:hover {}
 table#cart_summary {}
 table#cart_summary tr td.cart_product {width:45px;}
 
-table#cart_summary tr td.cart_quantity {text-align:center;width:46px;}
-table#cart_summary tr td.cart_quantity div#cart_quantity_button {width:30px;float:left;}
-table#cart_summary tr td.cart_quantity div#cart_quantity_button input.text {width:26px;margin:3px 0;text-align:center;}
+table#cart_summary tr td.cart_quantity a.cart_quantity_up{margin-bottom: -12px !important}
+
+table#cart_summary tr th.cart_quantity {text-align:center;}
+table#cart_summary .cart_quantity_input {text-align:center;margin-top:3px !important;}
+table#cart_summary tr td.cart_quantity {text-align:center;width:58px;}
+table#cart_summary tr td.cart_quantity div.cart_quantity_button {float:right;background-color: #aae;border: 1px solid #aae;}
+table#cart_summary tr td.cart_quantity div.cart_quantity_button input.text {width:26px;margin:3px 0;text-align:center;}
 table#cart_summary tr td.cart_quantity a {height:9px;display:block;text-align:center;}
 table#cart_summary tr td.cart_quantity a.cart_quantity_delete {width:11px;height:11px;display:block;float:left;margin:15px 0 0 5px;}
+
+.cart_total_price .total_price_container span#total_price{padding:5px 10px !important;}
 
 table#cart_summary tr td ul.customizationUploaded li img {margin:0 10px 0 0;border:1px solid #eee;}
 table#cart_summary tr td ul.typedText li {padding:7px 0 0 0;}
@@ -1307,16 +1345,99 @@ p#gift_div textarea {width:665px;height:100px;margin:12px 0 0 0;}
 
 
 /* ————— Order step 5: payment (order-payment.tpl) ————— */
-p.payment_module {display:block;margin:0 !important;padding:17px 0 0 0 !important;border:none !important;}
+#ewaypaymentform {clear:both;}
+#ewaypaymentform, p.payment_module {display:block;margin:0 !important;padding:17px 0 0 0 !important;border:none !important;}
 .payment_module img {vertical-align:middle;margin:0 10px 0 0;}
-.payment_module a {display:block;background:#fafafa;border:2px solid #ddd;padding:7px;color:#777;text-decoration:none;}
+#ewaypaymentform form, .payment_module a {display:block;background:#fafafa;border:2px solid #ddd;padding:7px;color:#777;text-decoration:none;}
 
 .payment_module a:hover,
 .payment_module a:focus,
 .payment_module a:active {background:#fff;border:2px solid #000;color:#000;}
 
+/* eWay payment form */
+#eway_input_button {padding:10px 0 0 180px;}
+#eway_input_button  input:hover {border:2px solid black;}
+/* #ewaypaymentform form {border:2px solid #ddd; background-color:#fafafa;} */
+
 
 /* ————— history.tpl ————— */
+
+#block-history input[value=Reorder] {margin-bottom:10px;}
+
+#history #left_column {display:none}
+#history #center_column h1{margin-top:20px}
+#history #center_column .title_block {
+	margin:20px 0;
+	padding:15px 20px;
+	background:#eee;
+}
+#history #center_column .title_block  input {
+	position: relative;
+   top: -8px;
+	float:right;
+}
+
+.info-order {
+	margin-bottom:20px;
+}
+.info-order p {padding-bottom:10px}
+.info-order p  strong{font-weight:bold;min-width:130px;display:inline-block;}
+.info-order p .icon {
+	position:relative;
+	top:2px;
+	left:0
+}
+
+
+
+#order-list {
+	margin-bottom:20px;
+	width:100%;
+	border:1px solid #999;
+	border-bottom:none
+}
+#order-list  th {
+	padding:14px 12px;
+	color:#fff;
+	text-transform:uppercase;
+	text-shadow:0 1px 0 #000;
+	background:url(../img/bg_table_th.png) repeat-x 0 0 #444
+}
+#order-list tr.alternate_item {background-color: #f3f3f3}
+#order-list  td {
+	padding:12px;
+	border-right:1px solid #e9e9e9;
+	border-bottom:1px solid #e9e9e9;
+	font-weight:bold;
+	font-size:12px;
+	vertical-align:top
+}
+#order-list  td.history_detail {border-right:none;}
+
+#order-list .last_item  td {border-bottom:1px solid #999}
+
+.adresses_bloc {margin-bottom:20px}
+.adresses_bloc  .item {margin-right:60px}
+
+.detail_step_by_step {width:100%}
+.detail_step_by_step tr.last_item td {border-bottom:1px solid #999}
+
+#order-detail-content table {width:100%}
+#order-detail-content table .order_qte_input {display:none}
+#order-detail-content table tr.totalprice td {border-bottom:1px solid #999}
+#order-detail-content table tr:nth-child(even) {background:#f3f3f3;}
+
+#sendOrderMessage {margin-bottom:20px}
+#sendOrderMessage p {padding-bottom:10px}
+
+#returnOrderMessage .textarea textarea,
+#sendOrderMessage .textarea textarea {
+	width:100%;
+	border:1px solid #999
+}
+
+/* END replacement css */
+/*
 .color-myaccount,
 a.color-myaccount {color:#000;}
 
@@ -1337,7 +1458,7 @@ div#order-detail-content table.std td.last_item {text-align:right;}
 
 form#sendOrderMessage {padding:3px 0 0 0;}
 form#sendOrderMessage p.submit {padding:12px 0 0 0;}
-
+*/
 
 /* ————— order-slip.tpl ————— */
 
@@ -1380,6 +1501,7 @@ div#login_form_content input.text {width:206px;}
 /* already registered */
 div#login_form_content p.submit,
 div#login_form_content p.lost_password {padding-left:157px;}
+div#login_form_content p.lost_password a {color:black !important}
 
 /* new customer */
 div#opc_account_form textarea#other,

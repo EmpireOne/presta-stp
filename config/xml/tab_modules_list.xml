@@ -45,20 +45,21 @@
    </tab>
    <tab class_name="AdminMarketing" display_type="default_list">
       <module name="ebay" position="1" />      
-      <module name="addshoppers" position="2" />
-      <module name="nqgatewayneteven" position="3" />
-      <module name="loyalty" position="4" />
-      <module name="referralprogram" position="5" />
-      <module name="shoppingfluxexport" position="6" />
-      <module name="shoppingfeedexport" position="7" />
-      <module name="prediggo" position="8" />
-      <module name="yotpo" position="9" />
-      <module name="twenga" position="10" />
-      <module name="itembase" position="11" />
-      <module name="fidbag" position="12" />
-      <module name="trustedshops" position="13" />
-      <module name="seohelping" position="14" />
-      <module name="innovativemenu" position="15" />
+      <module name="gadwords" position="2" />
+      <module name="addshoppers" position="3" />
+      <module name="nqgatewayneteven" position="4" />
+      <module name="loyalty" position="5" />
+      <module name="referralprogram" position="6" />
+      <module name="shoppingfluxexport" position="7" />
+      <module name="shoppingfeedexport" position="8" />
+      <module name="prediggo" position="9" />
+      <module name="yotpo" position="10" />
+      <module name="twenga" position="11" />
+      <module name="itembase" position="12" />
+      <module name="fidbag" position="13" />
+      <module name="trustedshops" position="14" />
+      <module name="seohelping" position="15" />
+      <module name="innovativemenu" position="16" />
    </tab>
    <tab class_name="AdminCustomerThreads" display_type="slider_list">
       <module name="zingaya" position="1" />

@@ -3,6 +3,12 @@
 class Address extends AddressCore
 {
 
+
+
+
+
+
+
     public function isDifferent($address_new)
     {
         // verification keys: VK##2

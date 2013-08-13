@@ -96,7 +96,7 @@
 						<td style="background-color: #4D4D4D; color: #FFF; text-align: right; font-weight: bold; width: 15%">{l s='List Price' pdf='true'} <br />{l s='(Tax Excl.)' pdf='true'}</td>
 					{/if}
 					<td style="background-color: #4D4D4D; color: #FFF; text-align: right; font-weight: bold; width: 15%">
-						{l s='Unit Price' pdf='true'}
+						{l s='Unit Price' pdf='true'}<br />
 						{if $tax_excluded_display}
 							 {l s='(Tax Excl.)' pdf='true'}
 						{else}
@@ -104,7 +104,7 @@
 						{/if}
 					</td>
 					<td style="background-color: #4D4D4D; color: #FFF; text-align: right; font-weight: bold; width: {if !$tax_excluded_display}15%{else}30%{/if}">
-						{l s='Amount' pdf='true'}
+						{l s='Amount' pdf='true'}<br />
 						{if $tax_excluded_display}
 							{l s='(Tax Excl.)' pdf='true'}
 						{else}
@@ -191,6 +191,12 @@
 			</table>
 
 			<table style="width: 100%">
+			
+				<tr style="line-height:5px;">
+					<td style="width: 85%;"></td>
+					<td style="width: 15%;"></td>
+				</tr>
+				
 				<tr style="line-height:5px;">
 					<td style="width: 85%; text-align: right; font-weight: bold">{l s='Subtotal (Tax Excl.)' pdf='true'}</td>
 					<td style="width: 15%; text-align: right;">{displayPrice currency=$order->id_currency price=$order_invoice->total_products}</td>
@@ -238,6 +244,10 @@
 				</tr>
 				{/if}
 
+				<tr style="line-height:5px;">
+					<td style="width: 85%;"></td>
+					<td style="width: 15%;"></td>
+				</tr>
 
 				<tr style="line-height:5px;">
 					<td>
@@ -249,7 +259,7 @@
 							</tr>
 						</table>
 					</td>
-					<td style="width: 15%; text-align: right; font-weight: bold; background-color:#eeffee">{displayPrice currency=$order->id_currency price=$order_invoice->total_paid_tax_incl}<br /><span>PAY THIS<br/ >AMOUNT</span></td>
+					<td style="width: 15%; text-align: right; font-weight: bold; background-color:#ffdddd">{displayPrice currency=$order->id_currency price=$order_invoice->total_paid_tax_incl}<br /><span>PAY THIS<br/ >AMOUNT</span></td>
 				</tr>
 				
 				<tr style="line-height:15px;">

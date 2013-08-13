@@ -35,7 +35,7 @@
 {/if}
 
 {*if isset($opc_config.payment_radio_buttons) && $opc_config.payment_radio_buttons*}
-<form class="std" action="#" id="payments_section">
+<div class="std" action="#" id="payments_section">
 <fieldset>
     <h3>{l s='Choose your payment method' mod='onepagecheckout'}</h3>
     {*else*}
@@ -56,16 +56,16 @@
         <div id="HOOK_PAYMENT_PARSED" style="display:none;"></div>
     {/if}
 
-    {* don't display HOOK_PAYMENT here due to <form> tags colision, display it at the end. *}
-    {if !isset($opc_config.payment_radio_buttons) || !$opc_config.payment_radio_buttons}
-        {if isset($HOOK_PAYMENT.orig_hook) && $HOOK_PAYMENT.orig_hook}
-            <div id="opc_payment_methods-content">
-                <div id="HOOK_PAYMENT">{$HOOK_PAYMENT.orig_hook}</div>
-            </div>
-            {else}
-            <p class="warning">{l s='No payment modules have been installed.' mod='onepagecheckout'}</p>
-        {/if}
-    {/if}
+    {* don't display HOOK_PAYMENT here due to <form> tags colision, display it at the end. EDIT: MZ CHANGED THE FORM TO A DIV*}
+	{if !isset($opc_config.payment_radio_buttons) || !$opc_config.payment_radio_buttons}
+		{if isset($HOOK_PAYMENT.orig_hook) && $HOOK_PAYMENT.orig_hook}
+			<div id="opc_payment_methods-content">
+				<div id="HOOK_PAYMENT">{$HOOK_PAYMENT.orig_hook}</div>
+			</div>
+			{else}
+			<p class="warning">{l s='No payment modules have been installed.' mod='onepagecheckout'}</p>
+		{/if}
+	{/if}
 
     </div>
 </fieldset>

@@ -24,6 +24,7 @@
  *  International Registered Trademark & Property of PrestaShop SA
  */
 
+ 
 $.browser.chrome = /chrome/.test(navigator.userAgent.toLowerCase());
 
 jQuery.fn.idle = function (time) {
@@ -1203,7 +1204,7 @@ function submitAccount(payment_module_button) {
             $('#opc_payment_methods-overlay').fadeOut('slow');
             setPaymentModuleHandler();
 
-            if (ret_value) {
+            if (ret_value && payment_module_button !== 'buttonless') {
                 if (opc_relay_update == "1") {
                     updatePaymentsOnly();
                     if (payment_module_button.attr('id') != undefined)
@@ -1467,7 +1468,8 @@ function _payment_module_handler(e) {
     if (ret) {
         $('registerme').hide();
     }
-    return false;
+	
+	return false;
 }
 
 var payment_ret_val = true;
@@ -2388,6 +2390,13 @@ $(document).ready(function () {
     bindInputs();
 
     $('#opc_account_form input,select,textarea').change(function () {
+		// if ($('input#opc_id_customer').val() !== 0) {
+			// submitAccount('buttonless');//to AJAX update every step
+		// }
+		processing_payment = false; //reactivate buttons
+		$('.payment_module').not($('a#click_cs_cardsave_direct').parent()).unbind('click').click(_payment_module_handler);//reactivate the buttons
+		$('#ewaypaymentform').hide('slow');
+		$('#ewaystarter').show('slow');
         if ($(this).is(':visible')) {
             $('#opc_account_saved').fadeOut('slow');
             $('#submitAccount').show();

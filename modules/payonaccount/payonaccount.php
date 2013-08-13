@@ -181,13 +181,16 @@ class PayOnAccount extends PaymentModule
 	}
 
 	public function hookPayment($params)
-	{
+	{	
+		$group_check = array(1,2);
 		$group_ids_with_accounts = array(4); //CHANGE THIS ARRAY TO YOUR LIKING
 		if (!$this->active)
 			return;
 		if (!$this->checkCurrency($params['cart']))
 			return;
-		$group_check =	$this->context->customer->getGroups($this->context->customer->id_customer);
+		if(isset($this->context->customer->id)){
+			$group_check =	$this->context->customer->getGroups($this->context->customer->id);
+		}
 		if ($group_ids_with_accounts == array_diff($group_ids_with_accounts, $group_check))
 			return;
 

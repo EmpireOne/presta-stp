@@ -16,6 +16,13 @@ class Customer extends CustomerCore
 
 
 
+
+
+
+
+
+
+
     private static function isOpcModuleActive()
     {
         $opc_mod_script = _PS_MODULE_DIR_ . 'onepagecheckout/onepagecheckout.php';
