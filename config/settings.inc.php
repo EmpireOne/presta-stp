@@ -1,4 +1,4 @@
-<?php
+<?php 
 define('_DB_SERVER_', 'eopdb1.empireone.com.au');
 define('_DB_NAME_', 'sydneytruckparts_com_au_dev');
 define('_DB_USER_', 'empireone_d');
