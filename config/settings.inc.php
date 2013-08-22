@@ -1,8 +1,8 @@
 <?php
-define('_DB_SERVER_', 'eopdb1.empireone.com.au');
-define('_DB_NAME_', 'sydneytruckparts_com_au_dev');
-define('_DB_USER_', 'empireone_d');
-define('_DB_PASSWD_', 'YNn2DaFW');
+define('_DB_SERVER_', 'localhost');
+define('_DB_NAME_', 'sydneytr_prod');
+define('_DB_USER_', 'sydneytr_prd');
+define('_DB_PASSWD_', 'zaqq1590#456');
 define('_DB_PREFIX_', 'ps_');
 define('_MYSQL_ENGINE_', 'InnoDB');
 define('_PS_CACHING_SYSTEM_', 'CacheFs');

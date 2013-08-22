@@ -231,6 +231,7 @@
 				{/if}
 				-->
 
+				<!--
 				{if $order_invoice->total_shipping_tax_incl > 0}
 				<tr style="line-height:5px;">
 					<td style="text-align: right; font-weight: bold">{l s='Freight' pdf='true'}</td>
@@ -240,6 +241,25 @@
 							{else}
 							{displayPrice currency=$order->id_currency price=$order_invoice->total_shipping_tax_incl}
 						{/if}
+					</td>
+				</tr>
+				{/if}
+				-->
+				
+				{if $order_invoice->total_shipping_tax_incl > 0}
+				<tr style="line-height:5px;">
+					<td style="text-align: right; font-weight: bold">{l s='Freight (Tax Excl.)' pdf='true'}</td>
+					<td style="width: 15%; text-align: right;">
+							{displayPrice currency=$order->id_currency price=$order_invoice->total_shipping_tax_excl}
+					</td>
+				</tr>
+				{/if}
+				
+				{if $order_invoice->total_shipping_tax_incl > 0}
+				<tr style="line-height:5px;">
+					<td style="text-align: right; font-weight: bold">{l s='Freight Tax' pdf='true'}</td>
+					<td style="width: 15%; text-align: right;">
+							{displayPrice currency=$order->id_currency price=$order_invoice->total_shipping_tax_incl - $order_invoice->total_shipping_tax_excl}
 					</td>
 				</tr>
 				{/if}

@@ -53,7 +53,7 @@ ul.sf-menu li.sfHover li ul {
 }
 ul.sf-menu li li:hover ul,
 ul.sf-menu li li.sfHover ul {
-	left:			260px; /* match ul width */
+	left:			150px; /* match ul width */
 	top:			0;
 }
 ul.sf-menu li li:hover li ul,
@@ -62,7 +62,7 @@ ul.sf-menu li li.sfHover li ul {
 }
 ul.sf-menu li li li:hover ul,
 ul.sf-menu li li li.sfHover ul {
-	left:			200px; /* match ul width */
+	left:			150px; /* match ul width */
 	top:			0;
 }
 
@@ -167,6 +167,6 @@ li.sf-search input {
 /* hack IE7 */
 .sf-menu a, .sf-menu a:visited {height:34px !IE;}
 .sf-menu li li {
-	width:260px; /* made wider for Car Audio theme */ 
+	min-width:150px; /* made wider for Car Audio theme */ 
 	background:#726f72 !IE;
 }
