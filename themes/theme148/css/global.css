@@ -93,7 +93,9 @@ div#wrapper3 {width:950px;margin:0 auto;text-align:left;}
 div#left_column,
 div#center_column {float:left;}
 
-div#columns {float:left;padding:17px 0 0 0;}
+/*div#columns {float:left;padding:17px 0 0 0;}*/
+div#columns {padding:17px 0 0 0;} /* removed float left for one-page-checkout module to work */
+
 
 div#left_column {clear:left;width:230px;}
 div#center_column {width:670px;margin:0 0 10px 10px;padding:0 20px 20px 20px;background:#fff;}
@@ -318,7 +320,7 @@ form.std p {padding:12px 0 0 0;clear:both;}
 /* global form styles */
 input,
 textarea,
-select {background:#fff;border:1px solid #d1d1d1;font:normal 12px "Arial";color:#555;}
+select {background:#fff;border:1px solid #d1d1d1;font:normal 12px "Arial";color:#555;padding:1px;}
 
 /* form labels */
 form.std .text label,
@@ -345,7 +347,7 @@ form.std .checkbox span {font:normal 12px "Arial";color:#555;}
 span.editable {font:normal 12px/19px "Arial";color:#555;}
 
 /* selectss */
-select {height:19px;}
+select {height:22px;}
 form.std p.select select {width:210px;}
 
 select#days {width:45px;margin:0 8px 0 0;}
@@ -353,10 +355,10 @@ select#months {width:85px;margin:0 8px 0 0;}
 select#years {width:58px;}
 
 /* text inputs */
-input.text {height:15px;padding:1px;}
+input.text {height:19px;padding:1px;}
 
 p.text input,
-p.password input {width:206px;height:15px;padding:1px;}
+p.password input {width:206px;min-height:19px;padding:1px;}
 
 /* textarea */
 textarea {padding:1px;}
@@ -437,7 +439,7 @@ ul#header_user li#shopping_cart span {color:#88868f;}
 /* ————— blocksearch-top.tpl ————— */
 div#search_block_top {width:217px;height:31px;background:url(../img/bg_search.png) 0 0 no-repeat;position:absolute;right:19px;top:108px;}
 
-div#search_block_top input.search_query {width:169px;height:15px;margin:7px 0 0 7px;float:left;background:#2c2c2c;border:1px solid #2c2c2c;color:#fff;}
+div#search_block_top input.search_query {width:169px;height:19px;margin:7px 0 0 7px;float:left;background:#2c2c2c;border:1px solid #2c2c2c;color:#fff;}
 div#search_block_top a {width:33px;height:0;padding:31px 0 0 0;display:block;overflow:hidden;float:right;}
 
 div#old_center_column {display:none;}
@@ -562,6 +564,7 @@ div#manufacturers_block_left ul li a {height:30px;display:block;padding:0 0 0 33
 
 
 /* ————— tmspecials.tpl ————— */
+#right_column #tmspecials.block {max-height:388px;overflow:hidden;} /* backup height restriction for older IE versions */
 #right_column #tmspecials ul li {height:86px !important;}  /* override height for custom specials on homepage */
 div#tmspecials div.block_content {padding:0 19px;}
 div#tmspecials ul li {height:92px;border-top:1px dashed #e8e8e8;}
@@ -661,7 +664,7 @@ div#stores_block_left p a img {margin:0 0 10px 0;}
 
 /* —————————————————————————————— center column styles —————————————————————————————— */
 /* ————— breadcrumb.tpl ————— */
-.breadcrumb {width:699px;height:27px;margin:0 0 0 -20px;padding:12px 0 0 11px;border-bottom:1px solid #dfdfdf;color:#8b8b8b;}
+.breadcrumb {width:699px;min-height:14px;margin:0 0 0 -20px;padding:12px 0px 13px 11px;border-bottom:1px solid #dfdfdf;color:#8b8b8b;}
 
 .breadcrumb .navigation_page,
 .breadcrumb .navigation_end,
@@ -815,7 +818,7 @@ form.pagination input {display:none;}
 
 /* ————— stores.tpl ————— */
 div#stores_block p.text label {display:block;float:left;padding:2px 7px 0 0;}
-div#stores_block p.text input {width:270px;height:15px;padding:1px;font:normal 12px "Arial";color:#555;}
+div#stores_block p.text input {width:270px;height:19px;padding:1px;font:normal 12px "Arial";color:#555;}
 
 div#stores_block p.select {padding:20px 0 0 0;}
 div#stores_block p.select label {display:block;float:left;padding:2px 7px 0 0;}
@@ -1040,7 +1043,7 @@ div#idTab5 fieldset {margin:0;padding:0 0 3px 0;}
 div#idTab5 fieldset label {display:block;padding:5px 0 0 0;}
 
 div#idTab5 fieldset input#customer_name,
-div#idTab5 fieldset input#comment_title {width:206px;height:15px;padding:1px;margin:3px 0 0 0;}
+div#idTab5 fieldset input#comment_title {width:206px;height:19px;padding:1px;margin:3px 0 0 0;}
 
 div#idTab5 textarea#content {width:626px;height:100px;margin:3px 0 5px 0;}
 

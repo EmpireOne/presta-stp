@@ -83,7 +83,7 @@
 		{/if}
 		<p class="textarea">
 			<label for="message">{l s='Message'}</label>
-			 <textarea id="message" name="message" rows="15" cols="20">{if isset($message)}{$message|escape:'htmlall':'UTF-8'|stripslashes}{/if}</textarea>
+			 <textarea id="message" name="message" rows="15" cols="38">{if isset($message)}{$message|escape:'htmlall':'UTF-8'|stripslashes}{/if}</textarea>
 		</p>
 		<p class="submit">
 			<input type="submit" name="submitMessage" id="submitMessage" value="{l s='Send'}" class="button_large" />

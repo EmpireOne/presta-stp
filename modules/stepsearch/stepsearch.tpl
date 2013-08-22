@@ -23,7 +23,7 @@
 		<!-- Show search tips replaced with search button by request -->
 		<!-- <p><a class="toggletips" href="javascript:void(0)" title="{l s='Show Search Tips' mod='stepsearch'}">{l s='Show Search Tips' mod='stepsearch'}</a></p> -->
 		<!--<p><a class="step_search_btn" href="#" onclick="return false;" title="{l s='Search' mod='stepsearch'}">{l s='Search' mod='stepsearch'}</a></p>-->
-		<p><a class="button_small" id="step_search_btn" style="margin: 10px 0 3px 0; width:80px" "href="#" onclick="return false;" title="{l s='Search' mod='stepsearch'}">{l s='Search' mod='stepsearch'}</a></p>
+		<p><a class="button_small" id="step_search_btn" style="margin: 10px 0 3px 0; width:80px" href="#" onclick="return false;" title="{l s='Search' mod='stepsearch'}">{l s='Search' mod='stepsearch'}</a></p>
 		<div class="hidden">
 			<p>{l s='Redirecting...'}</p>
 		</div>

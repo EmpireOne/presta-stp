@@ -115,6 +115,7 @@ var delete_txt = '{l s='Delete' mod='blockcart' js=1}';
 		{/foreach}
 		</dl>
 	{/if}
+		<p style="overflow:hidden;width:0;height:8px;clear: both;padding:0">&nbsp;</p>
 		<p {if $products}class="hidden"{/if} id="cart_block_no_products">{l s='No products' mod='blockcart'}</p>
 		<table id="vouchers"{if $discounts|@count == 0} style="display:none;"{/if}>
 			<tbody>
