@@ -38,8 +38,8 @@
 			<p>
 				<b>{$store.name|escape:'htmlall':'UTF-8'}</b><br />
 				{$store.address1|escape:'htmlall':'UTF-8'}<br />
-				{if $store.address2}{$store.address2|escape:'htmlall':'UTF-8'}{/if}<br />
-				{$store.postcode} {$store.city|escape:'htmlall':'UTF-8'}{if $store.state}, {$store.state}{/if}<br />
+				{if $store.address2}{$store.address2|escape:'htmlall':'UTF-8'}<br />{/if}
+				{$store.city|escape:'htmlall':'UTF-8'}{if $store.state}, {$store.state}{/if} {$store.postcode}<br />
 				{$store.country|escape:'htmlall':'UTF-8'}<br />
 				{if $store.phone}{l s='Phone:' js=0} {$store.phone}{/if}
 			</p>

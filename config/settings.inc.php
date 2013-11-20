@@ -1,7 +1,7 @@
 <?php
 define('_DB_SERVER_', 'localhost');
-define('_DB_NAME_', 'sydneytr_prod');
-define('_DB_USER_', 'sydneytr_prd');
+define('_DB_NAME_', 'stp_prod');
+define('_DB_USER_', 'stp_sydneytr');
 define('_DB_PASSWD_', 'zaqq1590#456');
 define('_DB_PREFIX_', 'ps_');
 define('_MYSQL_ENGINE_', 'InnoDB');

@@ -108,7 +108,6 @@
     var opc_hide_carrier = '{$opc_config.hide_carrier}';
     var opc_hide_payment = '{$opc_config.hide_payment}';
     var opc_override_checkout_btn = '{$opc_config.override_checkout_btn}';
-    <!-- var ps_guest_checkout_enabled = '{* $PS_GUEST_CHECKOUT_ENABLED.value *}'; removed by Michael Z -->
 	var ps_guest_checkout_enabled = '{$PS_GUEST_CHECKOUT_ENABLED|intval}';
     var opc_display_password_msg = '{$opc_config.display_password_msg}';
     var opc_live_zip = '{$opc_config.live_zip}';
