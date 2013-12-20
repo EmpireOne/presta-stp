@@ -22,38 +22,42 @@
 						<div class="fl width-20">
 							<img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'small_default')}" class="img_product_cart" />
 						</div>
-						<div class="fl width-60 padding-left-5px">
+						<div class="fl width-75 padding-left-5px">
 							<h3>{$product.name}</h3>
 							{if $product.reference}<p>{l s='Ref:'} {$product.reference}</p>{/if}
 							<p>{$product.description_short}</p>
 						</div>
 						<div class="clear"></div>
 
-						<table class="width-100">
+						<table data-role="table" class="width-100 mobile-breakpoint">
 							<thead>
 								<tr>
-									<td class="width-40">{l s='Unit price'}</td>
-									<td>{l s='Qty'}</td>
-									<td class="width-40">{l s='Total'}</td>
+									<th class="width-40">{l s='Unit price'}</td>
+									<th class="table-center">{l s='Qty'}</td>
+									<th class="width-40">{l s='Total'}</td>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
 									<td>{displayPrice price=$product.price_wt}</td>
-									<td>
+									<td class="table-center">
 										<input
 											type="number"
+											data-role="spinbox"
+											{literal}data-options='{"type":"vertical"}'{/literal}
 											class="qty-field cart_quantity_input"
 											name="product_cart_quantity_{$product.id_product}"
 											value="{$product.cart_quantity}"
 											min="0"
-											max="{$product.quantity_available}"
+											{if ($product.allow_oosp !== 1)}max="{$product.quantity_available}"{/if}
 											data-mini="true"
 											data-initial-quantity="{$product.cart_quantity}"
 											data-id-product="{$product.id_product}"
-											data-id-product-attribute="{$product.id_product_attribute}" />
+											data-id-product-attribute="{$product.id_product_attribute}"
+											style="margin:0"
+											/>
 									</td>
-									<td class="right">{displayPrice price=$product.total_wt}</td>
+									<td>{displayPrice price=$product.total_wt}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -100,8 +104,8 @@
 		</ul>
 		{/if}
 		<br />
-		<div class="ui-grid-a cart_total_bar same-height">
-			<div class="ui-block-a">
+		<div class="mobile-breakpoint ui-grid-a cart_total_bar same-height">
+			<div class="ui-block-a" id="voucher-block">
 				<div class="ui-bar ui-bar-c">
 					<h3>{l s='Voucher:'}</h3>
 					<form action="{if $opc}{$link->getPageLink('order-opc', true)}{else}{$link->getPageLink('order', true)}{/if}" method="post" data-ajax="false">

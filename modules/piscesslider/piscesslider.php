@@ -19,8 +19,11 @@ class piscesslider extends Module
  	}
     function install()
     {
-        if (!parent::install() OR !$this->registerHook('home'))
+        if (!parent::install() OR !$this->registerHook('home') OR 
+			!$this->registerHook('displayMobileIndex') OR
+			!$this->registerHook('displayMobileHeader')) {
             return false;
+			}
         return true;
     }
 	function putContent($xml_data, $key, $field)
@@ -216,5 +219,38 @@ class piscesslider extends Module
 			}
 		return false;
  	}
+	
+ 	function hookDisplayMobileIndex($params)
+ 	{
+        global $cookie;
+        /* Languages preliminaries */
+        $defaultLanguage = intval(Configuration::get('PS_LANG_DEFAULT'));
+        $languages = Language::getLanguages();
+        $iso = Language::getIsoById($defaultLanguage);
+        $isoUser = Language::getIsoById(intval($cookie->id_lang));
+ 	 	if (file_exists(dirname(__FILE__).'/links.xml'))
+ 	 		if ($xml = simplexml_load_file(dirname(__FILE__).'/links.xml'))
+ 	 		{
+ 	 		 	global $cookie, $smarty;
+				$smarty->assign(array(
+					'xml' => $xml,
+					'this_path' => $this->_path
+				));
+				return $this->display(__FILE__, 'piscesslider-mobile.tpl');
+			}
+		return false;
+ 	}
+	
+	public function hookDisplayMobileHeader($params)
+	{
+		if (version_compare(@_PS_VERSION_,'1.5','>'))
+		{
+			$this->context->controller->addCSS(($this->_path).'css/pisces-mobile.css', 'all');		
+		}
+		else {
+			Tools::addCSS(($this->_path).'css/pisces-mobile.css', 'all');		
+		}
+		
+	}
 }
 ?>

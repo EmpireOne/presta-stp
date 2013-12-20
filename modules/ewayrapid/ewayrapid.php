@@ -303,10 +303,12 @@ class Ewayrapid extends PaymentModule
 
         if ($isError) {
             global $smarty;
-			$smarty->assign('errors', array('[eWAY] '.$lblError));
+			//$this->context->smarty->assign('errors', array('[eWAY] '.$lblError));
+			$this->context->cookie->eway_errors = $lblError;
 			// This line changed by Michael Z // $_SERVER['HTTP_REFERER'] = self::getHttpHost(true, true).__PS_BASE_URI__.'order.php?step=3';
 			$_SERVER['HTTP_REFERER'] = self::getHttpHost(true, true).__PS_BASE_URI__.'index.php?controller=order&step=3';
-			$smarty->display(_PS_THEME_DIR_.'errors.tpl');
+			Tools::redirect(Context::getContext()->link->getModuleLink('ewayrapid', 'errors'));
+			//$smarty->display(_PS_THEME_DIR_.'errors.tpl');
             return false;
         }
 

@@ -1,6 +1,6 @@
 // Allows to set the same height on ui-block element
 // for #category-list items.
-$( '.prestashop-page' ).live( 'pageshow',function(event)
+$( '.prestashop-page' ).live( 'pageshow orientationchange',function(event)
 {
 	if ($('.ui-grid-a.same-height').length)
 	{

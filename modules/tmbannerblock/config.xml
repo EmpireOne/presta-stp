@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<module>
-	<name>tmbannerblock</name>
-	<displayName>TM Banner block</displayName>
-	<version>1.0</version>
-	<description>Block of banners at the homepage</description>
-	<author></author>
-	<tab>front_office_features</tab>
-	<is_configurable>1</is_configurable>
-	<need_instance>1</need_instance>
-</module>
+        <module>
+            <name>tmbannerblock</name>
+            <displayName><![CDATA[TM Banner block]]></displayName>
+            <version><![CDATA[1.0]]></version>
+            <description><![CDATA[Block of banners at the homepage]]></description>
+            <author><![CDATA[]]></author>
+            <tab><![CDATA[front_office_features]]></tab>
+            <is_configurable>1</is_configurable>
+            <need_instance>1</need_instance>
+	<limited_countries></limited_countries>
+        </module>

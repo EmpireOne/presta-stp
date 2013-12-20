@@ -164,6 +164,15 @@ function initProductPage()
 	{/if}
 }
 
-
+$(document).bind('pageshow', function() {
+	$(document).on('paste cut keyup focus change blur', 'input#quantity_wanted', function() {
+		$('p.error-quantity').hide();
+		var inputVal = $(this).val();
+		var numericReg = /^\d*[0-9](|.\d*[0-9]|,\d*[0-9])?$/;
+		if(!numericReg.test(inputVal)) {
+			$('#quantity_wanted_p').after('<p class="error error-quantity">Numeric characters only.</p>');
+		}
+	});
+});
 //]]>
 </script>

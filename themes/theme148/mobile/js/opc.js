@@ -19,7 +19,11 @@ function initEvent()
 
 			var qty = Math.abs(current_quantity - initial_quantity);
 
-			$.mobile.showPageLoadingMsg();
+			$.mobile.loading( 'show', {
+				text: "Validating Quantity",
+				textVisible: true,
+				textonly: false
+			});
 			$.ajax({
 				url: baseDir,
 				async: true,
@@ -34,7 +38,11 @@ function initEvent()
 	});
 
 	$('.address-field').change(function() {
-		$.mobile.showPageLoadingMsg();
+		$.mobile.loading( 'show', {
+			text: "Changing Address",
+			textVisible: true,
+			textonly: false
+			});
 		$.ajax({
 			url: baseDir,
 			async: true,
@@ -67,6 +75,11 @@ function initEvent()
 	});
 
 	$('#cgv').click(function() {
+		$.mobile.loading( 'show', {
+			text: "Updating Details",
+			textVisible: true,
+			textonly: false
+			});
 		if ($('#cgv:checked').length != 0)
 			var checked = 1;
 		else
@@ -153,7 +166,11 @@ function bindInputs()
 {
 	// Order message update
 	$('#message').blur(function() {
-		$('#opc_delivery_methods-overlay').fadeIn('slow');
+		$.mobile.loading( 'show', {
+			text: "Updating Details",
+			textVisible: true,
+			textonly: false
+			});
 		$.ajax({
 			type: 'POST',
 			headers: { "cache-control": "no-cache" },
@@ -174,12 +191,12 @@ function bindInputs()
 					alert(errors);
 				}
 			else
-				$('#opc_delivery_methods-overlay').fadeOut('slow');
+				$.mobile.loading( "hide" );
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				if (textStatus !== 'abort')
 					alert("TECHNICAL ERROR: unable to save message \n\nDetails:\nError thrown: " + XMLHttpRequest + "\n" + 'Text status: ' + textStatus);
-				$('#opc_delivery_methods-overlay').fadeOut('slow');
+				$.mobile.loading( "hide" );
 			}
 		});
 	});
@@ -237,7 +254,11 @@ function updateCarrierSelectionAndGift()
 		giftMessage = encodeURIComponent($('#gift_message').val());
 	}
 	
-	$('#opc_delivery_methods-overlay, #opc_payment_methods-overlay').fadeOut('slow');
+	$.mobile.loading( 'show', {
+		text: "Updating Details",
+		textVisible: true,
+		textonly: false
+		});
 	$.ajax({
 		type: 'POST',
 		headers: { "cache-control": "no-cache" },
@@ -264,14 +285,14 @@ function updateCarrierSelectionAndGift()
 				updateHookShoppingCart(jsonData.summary.HOOK_SHOPPING_CART);
 				updateHookShoppingCartExtra(jsonData.summary.HOOK_SHOPPING_CART_EXTRA);
 				updateCarrierList(jsonData.carrier_data);
-				$('#opc_delivery_methods-overlay, #opc_payment_methods-overlay').fadeOut('slow');
+				$.mobile.loading( "hide" );
 				refreshDeliveryOptions();
 			}
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			if (textStatus !== 'abort')
 				alert("TECHNICAL ERROR: unable to save carrier \n\nDetails:\nError thrown: " + XMLHttpRequest + "\n" + 'Text status: ' + textStatus);
-			$('#opc_delivery_methods-overlay, #opc_payment_methods-overlay').fadeOut('slow');
+			$.mobile.loading( "hide" );
 		}
 	});
 }
@@ -284,12 +305,16 @@ function updatePaymentMethods(json)
 
 function updatePaymentMethodsDisplay()
 {
+	$.mobile.loading( 'show', {
+		text: "Updating Details",
+		textVisible: true,
+		textonly: false
+	});
 	var checked = '';
 	if ($('#cgv:checked').length !== 0)
 		checked = 1;
 	else
 		checked = 0;
-	$('#opc_payment_methods-overlay').fadeIn('slow', function(){
 		$.ajax({
 			type: 'POST',
 			headers: { "cache-control": "no-cache" },
@@ -303,6 +328,5 @@ function updatePaymentMethodsDisplay()
 				updatePaymentMethods(json);
 			}
 		});
-		$(this).fadeOut('slow');		
-	});
+		$.mobile.loading( "hide" );		
 }

@@ -39,7 +39,7 @@
 			{/foreach}
 		{/if}
 		</ul>
-	{elseif isset($node.cms) && $node.cms|@count > 0}
+	{elseif isset($node.cms) && $node.cms|@count > 0 && !$child.id_cms_category eq 2}
 		<ul data-inset="true">
 		{foreach from=$node.cms item=cms name=cmsTreeBranch}
 			<li><a href="{$cms.link|escape:'htmlall':'UTF-8'}" title="{$cms.meta_title|escape:'htmlall':'UTF-8'}" data-ajax="false">{$cms.meta_title|escape:'htmlall':'UTF-8'}</a></li>

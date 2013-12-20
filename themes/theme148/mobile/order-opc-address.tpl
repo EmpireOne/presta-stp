@@ -27,7 +27,7 @@
 {include file='./page-title.tpl'}
 
 <div data-role="content" id="address-section">
-	<div class="ui-grid-a margin-bottom-10px">
+	<div class="ui-grid-a mobile-breakpoint margin-bottom-10px">
 		<div class="ui-block-a">
 			<h3 class="bg">{l s='Delivery address'}</h3>
 			{if isset($delivery)}
@@ -40,8 +40,8 @@
 					{if $delivery->address2}
 						<li class="address_address2">{$delivery->address2|escape:'htmlall':'UTF-8'}</li>
 					{/if}
-					<li class="address_city">{$delivery->postcode|escape:'htmlall':'UTF-8'} {$delivery->city|escape:'htmlall':'UTF-8'}</li>
-					<li class="address_country">{$delivery->country|escape:'htmlall':'UTF-8'} {if $delivery_state}({$delivery_state|escape:'htmlall':'UTF-8'}){/if}</li>
+					<li class="address_city">{$delivery->city|escape:'htmlall':'UTF-8'}{if $delivery_state}, {$delivery_state|escape:'htmlall':'UTF-8'}{/if} {$delivery->postcode|escape:'htmlall':'UTF-8'}</li>
+					<li class="address_country">{$delivery->country|escape:'htmlall':'UTF-8'}</li>
 				</ul>
 			{/if}
 			<label for="delivery-address-choice" class="select">{l s='Change address:'}</label>
@@ -69,8 +69,8 @@
 					{if $invoice->address2}
 						<li class="address_address2">{$invoice->address2|escape:'htmlall':'UTF-8'}</li>
 					{/if}
-					<li class="address_city">{$invoice->postcode|escape:'htmlall':'UTF-8'} {$invoice->city|escape:'htmlall':'UTF-8'}</li>
-					<li class="address_country">{$invoice->country|escape:'htmlall':'UTF-8'} {if $invoice_state}({$invoice_state|escape:'htmlall':'UTF-8'}){/if}</li>
+					<li class="address_city">{$invoice->city|escape:'htmlall':'UTF-8'}{if $invoice_state}, {$invoice_state|escape:'htmlall':'UTF-8'}{/if} {$invoice->postcode|escape:'htmlall':'UTF-8'}</li>
+					<li class="address_country">{$invoice->country|escape:'htmlall':'UTF-8'}</li>
 				</ul>
 			{else}
 				<p class="warning">{l s='You must specify your delivery and invoice address'}</p>

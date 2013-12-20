@@ -51,96 +51,99 @@
 			return true;
 	}
 	{/literal}
+	$(document).bind('pageshow', function() {
+		$('.delivery_option').click( function(){
+			$('.delivery_option.delivery_selected').removeClass('delivery_selected');
+			$(this).addClass('delivery_selected'); 
+			$(this).find("input[type=radio]").prop("checked", true);
+			if(jQuery.isFunction(updateCarrierSelectionAndGift))
+				updateCarrierSelectionAndGift();
+			});
+		});
 	//]]>
 </script>
 	
 <div data-role="content" id="delivery_choose">
 	<h3  class="bg">{l s='Choose your delivery method'}</h3>
-	<fieldset data-role="controlgroup">
+	<fieldset data-role="none">
 	{if isset($delivery_option_list)}
 		{foreach $delivery_option_list as $id_address => $option_list}
 			{foreach $option_list as $key => $option}
-				<div class="delivery_option {if ($option@index % 2)}alternate_{/if}item">
-					<input class="delivery_option_radio" type="radio" name="delivery_option[{$id_address}]" onchange="{if $opc}updateCarrierSelectionAndGift();{else}updateExtraCarrier('{$key}', {$id_address});{/if}" id="delivery_option_{$id_address}_{$option@index}" value="{$key}" {if isset($delivery_option[$id_address]) && $delivery_option[$id_address] == $key}checked="checked"{/if} />
-					<label for="delivery_option_{$id_address}_{$option@index}">
-						<div class="ui-grid-a">
-							<span class="resume ui-block-a">
-								<div class="ui-grid-b">
-									<p class="delivery_option_logo ui-block-a">
-										{foreach $option.carrier_list as $carrier}
-											{if $carrier.logo}
-												<img src="{$carrier.logo}" alt="{$carrier.instance->name}"/>
-											{else if !$option.unique_carrier}
-												{$carrier.instance->name}
-												{if !$carrier@last} - {/if}
-											{/if}
-										{/foreach}
-									</p>
-									<div class="ui-block-b" style="padding-left:4px;">
+				<div class="delivery_option ui-shadow ui-corner-all ui-btn-up-c {if ($option@index % 2)}alternate_{/if}item">
+					<table style="width:100%">
+						<tr>
+							<td style="width:10%; text-align:center" rowspan="2" class="delivery_option_action radio">
+								<input data-role="none" class="delivery_option_radio" type="radio" name="delivery_option[{$id_address}]" onchange="{if $opc}updateCarrierSelectionAndGift();{else}updateExtraCarrier('{$key}', {$id_address});{/if}" id="delivery_option_{$id_address}_{$option@index}" value="{$key}" {if isset($delivery_option[$id_address]) && $delivery_option[$id_address] == $key}checked="checked"{/if} />
+							</td>
+							<td style="width:45%; text-align:left" class="delivery_option_name">
+								<label data-role="none" for="delivery_option_{$id_address}_{$option@index}">
 									{if $option.unique_carrier}
 										{foreach $option.carrier_list as $carrier}
 											<div class="delivery_option_title">{$carrier.instance->name}</div>
 										{/foreach}
 									{/if}
-									</div>
-									<div class="ui-block-c">
-										<div class="delivery_option_price">
-											{if $option.total_price_with_tax && !$free_shipping}
-												{if $use_taxes == 1}
-													{convertPrice price=$option.total_price_with_tax} {l s='(tax incl.)'}
-												{else}
-													{convertPrice price=$option.total_price_without_tax} {l s='(tax excl.)'}
-												{/if}
-											{else}
-												{l s='Free'}
-											{/if}
-										</div>
-									</div>
-								</div>
-							</span>
-							<span class="delivery_option_carrier_desc ui-block-b {if isset($delivery_option[$id_address]) && $delivery_option[$id_address] == $key}selected{/if} {if $option.unique_carrier}not-displayable{/if}">
-								{foreach $option.carrier_list as $carrier}
-								<tr>
-									{if !$option.unique_carrier}
-									<td class="first_item">
-									<input type="hidden" value="{$carrier.instance->id}" name="id_carrier" />
-										{if $carrier.logo}
-											<img src="{$carrier.logo}" alt="{$carrier.instance->name}"/>
+								</label>
+							</td>
+							<td style="width:45%; text-align:right" class="delivery_option_price">
+								<label data-role="none" for="delivery_option_{$id_address}_{$option@index}">
+									{if $option.total_price_with_tax && !$free_shipping}
+										{if $use_taxes == 1}
+											<span style="font-size:1.3em">{convertPrice price=$option.total_price_with_tax}</span><br /><span style="font-size:0.8em">{l s='(tax incl.)'}</span>
+										{else}
+											<span style="font-size:1.3em">{convertPrice price=$option.total_price_without_tax}</span><br /><span style="font-size:0.8em">{l s='(tax excl.)'}</span>
 										{/if}
-									</td>
-									<td>
-										{$carrier.instance->name}
-									</td>
+									{else}
+										<span style="font-size:1.3em">{l s='Free'}</span>
 									{/if}
-									<td {if $option.unique_carrier}class="first_item" colspan="2"{/if}>
-										<input type="hidden" value="{$carrier.instance->id}" name="id_carrier" />
-										{if isset($carrier.instance->delay[$cookie->id_lang])}
-											{$carrier.instance->delay[$cookie->id_lang]}<br />
+								</label>
+							</td>
+						</tr>
+						{foreach $option.carrier_list as $carrier}
+						<tr class="delivery_option_carrier_desc">
+							{if !$option.unique_carrier}
+							<td class="first_item" colspan="2">
+								<label data-role="none" for="delivery_option_{$id_address}_{$option@index}">
+									<input type="hidden" value="{$carrier.instance->id}" name="id_carrier" />
+									{$carrier.instance->name}
+								</label>
+							</td>
+							{/if}
+							<td {if $option.unique_carrier}class="first_item" colspan="2"{/if}>
+								<label data-role="none" for="delivery_option_{$id_address}_{$option@index}">
+									<input type="hidden" value="{$carrier.instance->id}" name="id_carrier" />
+									{if isset($carrier.instance->delay[$cookie->id_lang])}
+										<span style="font-size:0.8em;">{$carrier.instance->delay[$cookie->id_lang]}</span><hr style="margin:3px 0"/>
+										<div data-role="collapsible" data-mini="true">
+											<h5>
 											{if count($carrier.product_list) <= 1}
-												({l s='Product concerned:'}
+												{l s='Product concerned:'}
 											{else}
-												({l s='Products concerned:'}
+												{l s='Products concerned:'}
 											{/if}
+											</h5>
+											<span style="font-size:0.6em;font-weight:normal">
 											{* This foreach is on one line, to avoid tabulation in the title attribute of the acronym *}
 											{foreach $carrier.product_list as $product}
-											{if $product@index == 4}<acronym title="{/if}{if $product@index >= 4}{$product.name}{if !$product@last}, {else}">...</acronym>){/if}{else}{$product.name}{if !$product@last}, {else}){/if}{/if}{/foreach}
-										{/if}
-									</td>
-								</tr>
-							{/foreach}
-							</span>
-						</div>
-					</label>
+											{if $product@index == 4}<acronym title="{/if}{if $product@index >= 4}{$product.name}{if !$product@last}, {else}">...</acronym>){/if}{else}{$product.name}{if !$product@last}, {else}{/if}{/if}{/foreach}
+											</span>	
+										</div>
+									{/if}
+								</label>
+							</td>
+						</tr>
+						{/foreach}
+					</table>
 				</div>
 			{/foreach}
 		{/foreach}
 	{/if}
 	</fieldset>
+	{if $cart->recyclable == 1}
 	<fieldset data-role="fieldcontain">
 		<input type="checkbox" name="same" id="recyclable" value="1" class="delivery_option_radio" {if $recyclable == 1}checked="checked"{/if} />
 		<label for="recyclable">{l s='I agree to receive my order in recycled packaging'}.</label>
 	</fieldset>
-
+	{/if}
 	{if $giftAllowed}
 		<h3 class="gift_title">{l s='Gift'}</h3>
 		<p class="checkbox">
@@ -167,5 +170,5 @@
 		<input type="checkbox" value="1" id="cgv" name="cgv" {if $checkedTOS}checked="checked"{/if} />
 		<label for="cgv">{l s='I agree to the terms of service and will adhere to them unconditionally.'}</label>
 	</fieldset>
-	<p class="lnk_CGV"><a href="{$link_conditions}" data-ajax="false">{l s='(Read Terms of Service)'}</a></p>
+	<p class="lnk_CGV"><a href="{$link_conditions}" data-role="button" data-theme="a" data-mini="true" target="_blank" data-ajax="false">{l s='Read Terms of Service'}</a></p>
 </div>

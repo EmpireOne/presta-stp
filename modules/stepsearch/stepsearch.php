@@ -28,6 +28,8 @@ class StepSearch extends Module
 	{
 		if (!parent::install() OR
 			!$this->registerHook('header') OR
+			!$this->registerHook('displayMobileHeader') OR
+			!$this->registerHook('displayMobileTopSiteMap') OR
 			!$this->registerHook('leftColumn') OR
 			!$this->_installConfig() OR
 			!$this->_installTable() OR
@@ -358,6 +360,11 @@ class StepSearch extends Module
 	{
 		return $this->hookLeftColumn($params);
 	}
+	
+	public function hookDisplayMobileTopSiteMap($params)
+	{	
+		return $this->hookLeftColumn($params);
+	}
 
 
 	public function hookHeader($params)
@@ -370,6 +377,18 @@ class StepSearch extends Module
 		else {
 			Tools::addCSS(($this->_path).'css/stepsearch.css', 'all');
 			Tools::addJS(($this->_path).'js/stepsearch.js', 'all');			
+		}
+		
+	}
+	
+	public function hookDisplayMobileHeader($params)
+	{
+		if (version_compare(@_PS_VERSION_,'1.5','>'))
+		{
+			$this->context->controller->addJS(($this->_path).'js/stepsearch_mobile_new.js', 'all');			
+		}
+		else {
+			Tools::addJS(($this->_path).'js/stepsearch_mobile_new.js', 'all');			
 		}
 		
 	}

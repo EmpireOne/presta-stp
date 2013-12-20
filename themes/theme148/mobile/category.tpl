@@ -48,6 +48,22 @@
 			<hr class="margin_less"/>
 		{/if}
 		<div class="clearfix">
+			{if isset($subcategories)}
+			<h2>{l s='Subcategories'}</h2>
+
+			<ul data-role="listview" data-inset="true">
+				{foreach from=$subcategories item=subcategory}
+						<li data-icon="arrow-d">
+							<a href="{$link->getCategoryLink($subcategory.id_category, $subcategory.link_rewrite)|escape:'htmlall':'UTF-8'}">
+								{$subcategory.name|escape:'htmlall':'UTF-8'}
+							</a>
+						</li>
+				{/foreach}
+			</ul>
+			{/if}
+		</div>		
+		<hr class="margin_less"/>
+		<div class="clearfix">
 			{include file="./category-product-sort.tpl" container_class="container-sort"}
 			<p class="nbr_result">{include file="$tpl_dir./category-count.tpl"}</p>
 		</div>

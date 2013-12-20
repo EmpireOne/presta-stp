@@ -51,3 +51,18 @@ $(function()
 	setDefaultTransition();
 	$( window ).bind( "throttledresize", setDefaultTransition );
 });
+
+		
+$(document).bind('pageshow', function() {
+	if(window.location.href.indexOf("eway.php") > -1 || window.location.href.indexOf("fc=module") > -1) {
+		$("body").find("a").attr("data-ajax","false");
+		}});
+		
+$(document).bind('pageshow', function() {
+	$.mobile.activePage.find("#full-flip").change(function() {
+		var siteSwitch = $(this).val();
+		if(siteSwitch = "on") {
+			window.location = fullSiteLink;
+		}});
+	})
+		

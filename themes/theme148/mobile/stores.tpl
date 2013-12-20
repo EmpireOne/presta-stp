@@ -26,6 +26,30 @@
 {capture assign='page_title'}{l s='Our stores'}{/capture}
 {include file='./page-title.tpl'}
 
+<!-- Stores -->
+<div data-role="content" id="content" class="stores">
+	<div id="stores_search_block">
+{if $simplifiedStoresDiplay}
+	{if $stores|@count}
+	<p>{l s='Here you can find our store locations. Please feel free to contact us:'}</p>
+	{foreach $stores as $store}
+		<div class="store-small">
+			{if $store.has_picture}<p><img src="{$img_store_dir}{$store.id_store}-medium_default.jpg" alt="" width="{$mediumSize.width}" height="{$mediumSize.height}" /></p>{/if}
+			<p>
+				<b>{$store.name|escape:'htmlall':'UTF-8'}</b><br />
+				{$store.address1|escape:'htmlall':'UTF-8'}<br />
+				{if $store.address2}{$store.address2|escape:'htmlall':'UTF-8'}<br />{/if}
+				{$store.city|escape:'htmlall':'UTF-8'}{if $store.state}, {$store.state}{/if} {$store.postcode}<br />
+				{$store.country|escape:'htmlall':'UTF-8'}<br />
+				{if $store.phone}{l s='Phone:' js=0} {$store.phone}{/if}
+			</p>
+				{if isset($store.working_hours)}{$store.working_hours}{/if}
+		</div>
+	{/foreach}
+	{/if}
+	</div>
+</div>
+{else}
 <script type="text/javascript">
 		// <![CDATA[
 		var map;
@@ -51,7 +75,7 @@
 		//]]>
 </script>
 
-<!-- Stores -->
+
 <div data-role="content" id="content" class="stores">
 
 	<div id="stores_search_block">
@@ -79,4 +103,5 @@
 	</div>
 	{include file="./sitemap.tpl"}
 </div> 
+{/if}
 <!-- END Stores -->

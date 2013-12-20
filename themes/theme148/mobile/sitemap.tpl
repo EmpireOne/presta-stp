@@ -24,38 +24,13 @@
 *}
 <div id="hook_mobile_top_site_map">
 {hook h="displayMobileTopSiteMap"}
+
 </div>
-<hr/>
-{if isset($categoriesTree.children)}
-	<h2>{l s='Our offers'}</h2>
-
-	<ul data-role="listview" data-inset="true">
-		{for $i=0 to 4}
-			{if isset($categoriesTree.children.$i)}
-				{if isset($categoriesTree.children.$i.children) && ($categoriesTree.children.$i.children|@count > 0)}
-						{include file="./category-tree-branch.tpl" node=$categoriesTree.children.$i}
-				{else}
-				<li data-icon="arrow-d">
-					<a href="{$categoriesTree.children.$i.link|escape:'htmlall':'UTF-8'}" title="{$categoriesTree.children.$i.desc|escape:'htmlall':'UTF-8'}">
-						{$categoriesTree.children.$i.name|escape:'htmlall':'UTF-8'}
-					</a>
-				</li>
-				{/if}
-			{/if}
-		{/for}
-		<li>
-			{l s='All categories'}
-			<ul data-role="listview" data-inset="true">
-				{foreach $categoriesTree.children as $child}
-					{include file="./category-tree-branch.tpl" node=$child last='true'}
-				{/foreach}
-			</ul>
-		</li>
-	</ul>
-{/if}
 
 <hr/>
-<h2>{l s='Sitemap'}</h2>
+<div class="ui-bar ui-bar-a center">
+	<h2>{l s='Sitemap'}</h2>
+</div>	
 <ul data-role="listview" data-inset="true" id="category">
 	{if $controller_name != 'index'}<li><a href="{$link->getPageLink('index', true)}">{l s='Home'}</a></li>{/if}
 	<li>{l s='Our offers'}

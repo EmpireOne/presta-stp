@@ -28,8 +28,12 @@
 					{hook h="displayMobileFooterChoice"}
 				</div><!-- /grid-a -->
 
-				<div id="full-site-section" class="center">
-					<a href="{$link->getPageLink('index', true)}?no_mobile_theme" data-ajax="false">{l s='Browse the full site'}</a>
+				<div id="full-site-switch" class="center">
+					<label for="full-flip">{l s='Switch to full site'}</label>
+						<select name="full-flip" id="full-flip" data-role="slider" data-mini="true">
+							<option value="off">{l s='Off'}</option>
+							<option value="on">{l s='On'}</option>
+						</select> 
 				</div>
 
 				<div data-role="footer" data-theme="a" id="bar_footer">

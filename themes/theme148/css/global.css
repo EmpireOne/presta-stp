@@ -712,7 +712,7 @@ div#featured-products_block_center {padding:10px 0 0 0;}
 div#featured-products_block_center div.block_content{margin:1px 0 0 0;padding:0 0 20px 0;background:#fff;}
 div#featured-products_block_center h4 {height:29px;padding:10px 0 0 11px;background:url(../img/center_col_title.png) 0 0 no-repeat;font:bold 12px "Trebuchet MS";color:#323232;text-transform:uppercase;}
 div#featured-products_block_center ul {overflow:hidden;}
-div#featured-products_block_center ul li {width:138px;height:214px;margin:20px 0 0 0;padding:0 19px;float:left;border-left:1px solid #f2f2f2;}
+div#featured-products_block_center ul li {width:138px;height:238px;margin:20px 0 0 0;padding:0 19px;float:left;border-left:1px solid #f2f2f2;}
 div#featured-products_block_center ul li.feat1 {border:none;padding:0 19px 0 20px;}
 
 div#featured-products_block_center ul li h5 {height:30px;padding:0 0 15px 0;}
@@ -866,6 +866,7 @@ table#product_comparison tr td.comparison_infos {font-weight:normal;}
 /* ————— product.tpl ————— */
 #primary_block {}
 #primary_block #pb-right-column {width:230px;float:left;padding:17px 0 0 0;}
+
 
 
 /* product img */
@@ -1552,6 +1553,7 @@ ul.shop_info li {padding-left:0.5em!important;padding-bottom:0.5em!important;}
 
 #footer {clear:both;overflow:hidden;position:relative;width:950px;}
 /* #footer > div {float:left;padding:0 10px 0 10px;width:190px} */
+p.mobile_link {text-align:center; padding-bottom:10px;}
 
 
 /* ————— blockcms.tpl ————— */

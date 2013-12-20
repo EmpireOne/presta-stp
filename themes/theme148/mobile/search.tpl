@@ -26,7 +26,7 @@
 {capture assign='page_title'}
 	{l s='Search'}
 	{if $nbProducts > 0}
-		"{if isset($search_query) && $search_query}{$search_query|escape:'htmlall':'UTF-8'}{elseif $search_tag}{$search_tag|escape:'htmlall':'UTF-8'}{elseif $ref}{$ref|escape:'htmlall':'UTF-8'}{/if}"
+		"{if isset($search_query) && $search_query}{$search_query|escape:'htmlall':'UTF-8'}{elseif isset($search_tag) && $search_tag}{$search_tag|escape:'htmlall':'UTF-8'}{elseif isset($category_search_tag) && $category_search_tag}{$category_search_tag|escape:'htmlall':'UTF-8'}{elseif $ref}{$ref|escape:'htmlall':'UTF-8'}{/if}"
 	{/if}
 {/capture}
 {include file='./page-title.tpl'}

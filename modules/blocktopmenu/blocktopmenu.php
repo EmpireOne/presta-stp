@@ -626,8 +626,13 @@ class Blocktopmenu extends Module
 		$id_lang = $id_lang ? (int)$id_lang : (int)Context::getContext()->language->id;
 		$category = new Category((int)$id_category, (int)$id_lang);
 
-		if ($category->level_depth > 1)
+		if ($category->level_depth > 1) {
 			$category_link = $category->getLink();
+			// if (stristr($category_link, __PS_BASE_URI__)) {
+				// $category_link = stristr($category_link, __PS_BASE_URI__);
+				// $category_link = str_replace(__PS_BASE_URI__,"",$category_link);
+			// }
+			}
 		else
 			$category_link = $this->context->link->getPageLink('index');
 
@@ -685,14 +690,21 @@ class Blocktopmenu extends Module
 				$links = $cms->getLinks((int)$id_lang, array((int)$cms->id));
 
 				$selected = ($this->page_name == 'cms' && ((int)Tools::getValue('id_cms') == $page['id_cms'])) ? ' class="sfHoverForce"' : '';
+				if ($cms->id_cms_category == 2) {
+					$this->_menu .= '<li '.$selected.'>';
+					$this->_menu .= '<a href="' . __PS_BASE_URI__ . 'search?category=' . rawurlencode($cms->meta_title) . '">'.$cms->meta_title.'</a>';
+					$this->_menu .= '</li>';							
+				} else {
 				$this->_menu .= '<li '.$selected.'>';
 				$this->_menu .= '<a href="'.$links[0]['link'].'">'.$cms->meta_title.'</a>';
 				$this->_menu .= '</li>';
+			}
 			}
 
 			$this->_menu .= '</ul>';
 		}
 	}
+
 
 	private function getCMSOptions($parent = 0, $depth = 1, $id_lang = false)
 	{
@@ -715,9 +727,13 @@ class Blocktopmenu extends Module
 	
 	protected function getCacheId($name = null)
 	{
+		// parent::getCacheId($name);
+		// $page_name = in_array($this->page_name, array('category', 'supplier', 'manufacturer', 'cms', 'product')) ? $this->page_name : 'index';
+		// return 'blocktopmenu|'.(int)Tools::usingSecureMode().'|'.$page_name.'|'.(int)$this->context->shop->id.'|'.implode(', ',$this->user_groups).'|'.(int)$this->context->language->id.'|'.(int)Tools::getValue('id_category').'|'.(int)Tools::getValue('id_manufacturer').'|'.(int)Tools::getValue('id_supplier').'|'.(int)Tools::getValue('id_cms').'|'.(int)Tools::getValue('id_product');
 		parent::getCacheId($name);
-		$page_name = in_array($this->page_name, array('category', 'supplier', 'manufacturer', 'cms', 'product')) ? $this->page_name : 'index';
-		return 'blocktopmenu|'.(int)Tools::usingSecureMode().'|'.$page_name.'|'.(int)$this->context->shop->id.'|'.implode(', ',$this->user_groups).'|'.(int)$this->context->language->id.'|'.(int)Tools::getValue('id_category').'|'.(int)Tools::getValue('id_manufacturer').'|'.(int)Tools::getValue('id_supplier').'|'.(int)Tools::getValue('id_cms').'|'.(int)Tools::getValue('id_product');
+		$page_name = 'index';
+		return 'blocktopmenu|'.(int)Tools::usingSecureMode().'|'.$page_name.'|'.(int)$this->context->shop->id.'|'.implode(', ',$this->user_groups).'|'.(int)$this->context->language->id;
+		
 	}
 
 	public function hookDisplayTop($param)

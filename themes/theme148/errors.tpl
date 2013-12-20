@@ -7,7 +7,7 @@
 		{/foreach}
 		</ol>
 		{if isset($smarty.server.HTTP_REFERER) && !strstr($request_uri, 'authentication')}
-			<p><a href="{$smarty.server.HTTP_REFERER|escape:'htmlall':'UTF-8'|secureReferrer}" class="button_small" title="{l s='Back'}">&laquo; {l s='Back'}</a></p>
+			<p><a href="{$smarty.server.HTTP_REFERER|escape:'htmlall':'UTF-8'|secureReferrer}" class="button_small" title="{l s='Back'}" rel="external">&laquo; {l s='Back'}</a></p>
 		{/if}
 	</div>
 {/if}

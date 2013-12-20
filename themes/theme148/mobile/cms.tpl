@@ -51,11 +51,19 @@
 		{if isset($cms_pages) & !empty($cms_pages)}
 		<h3 class="bg">{l s='List of pages in %s:' sprintf=$category->name}</h3>
 			<ul data-role="listview" data-inset="true">
-				{foreach from=$cms_pages item=cmspages}
-					<li>
-						<a href="{$link->getCMSLink($cmspages.id_cms, $cmspages.link_rewrite)|escape:'htmlall':'UTF-8'}" data-ajax="false">{$cmspages.meta_title|escape:'htmlall':'UTF-8'}</a>
-					</li>
-				{/foreach}
+				{if !$category->id_cms_category eq 2}
+					{foreach from=$cms_pages item=cmspages}
+						<li>
+							<a href="{$link->getCMSLink($cmspages.id_cms, $cmspages.link_rewrite)|escape:'htmlall':'UTF-8'}" data-ajax="false">{$cmspages.meta_title|escape:'htmlall':'UTF-8'}</a>
+						</li>
+					{/foreach}
+				{else}
+					{foreach from=$cms_pages item=cmspages}
+						<li>
+							<a href="{$base_dir}search?category={$cmspages.meta_title|escape:'url'}" data-ajax="false">{$cmspages.meta_title|escape:'htmlall':'UTF-8'}</a>
+						</li>
+					{/foreach}	
+				{/if}
 			</ul>
 		{/if}
 	</div>

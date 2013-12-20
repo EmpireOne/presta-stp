@@ -16,7 +16,7 @@
 
 <div id="ewaystarter">
 <p class="payment_module">
-	<a href="javascript: $('#ewaystarter').hide('slow'); $('#ewaypaymentform').show('slow'); void(0);" title="{l s='Pay with card using eWay' mod='ewaypay'}">
+	<a href="javascript: $('#ewaystarter').hide('slow'); $('#ewaypaymentform').show('slow'); void(0);" data-ajax="false" title="{l s='Pay with card using eWay' mod='ewaypay'}">
 		<img src="{$module_dir}eway.gif" alt="{l s='Pay with a card using eWay' mod='ewaypay'}" height="49"/>
 		{l s='Pay with a card using eWay' mod='ewaypay'}
 	</a>
